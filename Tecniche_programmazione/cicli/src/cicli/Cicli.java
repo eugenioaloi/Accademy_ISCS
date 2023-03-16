@@ -7,7 +7,6 @@ public class Cicli {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		/*********** INIZIO RIGA ******************
 		
 		for (int i=0;i<10;i++) {//10 numeri da 0 a 9, contatore che incrementa di 1
 			System.out.println(" ciao: "+i);
@@ -166,7 +165,6 @@ public class Cicli {
 			System.out.print(i);
 		}
 		
-		*********** FINE RIGA ******************/
 
 		//******* Ciclo Infinito **********
 		
@@ -178,10 +176,6 @@ public class Cicli {
 			}
 			val++;//senza questa condizione si ottiene un ciclo infinito
 		}
-		
-		
-		
-		
 		
 	}//CHISURA MAIN
 }//CHIUSURA CLASSE
