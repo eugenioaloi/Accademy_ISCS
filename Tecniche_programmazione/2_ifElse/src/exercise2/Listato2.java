@@ -31,13 +31,18 @@ public class Listato2 {
 		System.out.println(mess);
 		
 		//*************PROGRAMMAZIONE A STATI************************
-		if (passato) {
-			System.out.println("vuoi registrare?");
-			//procedura di registrazione
-		}
-		
-		sc.close();
-		
-	}
 
+		//procedura di registrazione
+		if (passato) {
+			System.out.println("Lo vuoi registrare -Premi ok per farlo?");
+			String res = sc.next();
+			
+			boolean flag = res.toLowerCase().equals("ok");
+			
+			String msg = flag?"voto registrato":"voto rifiutato";
+			System.out.println(msg);
+			
+		}
+		sc.close();
+	}
 }

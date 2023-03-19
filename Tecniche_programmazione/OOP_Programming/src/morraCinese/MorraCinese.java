@@ -55,5 +55,6 @@ public class MorraCinese {
 	public void setChoicePc(String choicePc) {
 		this.choicePc = choicePc;
 	}
+	
 
 }

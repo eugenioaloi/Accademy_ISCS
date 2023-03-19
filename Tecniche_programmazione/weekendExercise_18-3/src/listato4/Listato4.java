@@ -28,9 +28,6 @@ public class Listato4 {
 			sComparable += s;
 		}
 		
-		//Stringa ideale sulla quale posso avviare l'algoritmo
-		System.out.println(sComparable);
-		
 		//****** Algoritmo per invertire la Stringa ******
 		
 		//l'indice i deve partire dalla lunghezza della stringa-1, per non uscire dal bound

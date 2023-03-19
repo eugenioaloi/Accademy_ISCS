@@ -12,8 +12,6 @@ public class ProvaArray {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		
-		/*********** INIZIO RIGA *******************
-		
 		//Tutti gli el devono essere dello stesso tipo
 		int [] arrInt = new int [5];//dichiarazione di un array e valorizazione della dimensione
 		arrInt [0] = 1;
@@ -93,8 +91,8 @@ public class ProvaArray {
 		//con la funzione split si può togliere una stringa che equivale ad un valore specifico
 		String [] arrStr = str.split(" ");
 		
-		for(String s:arrStr) {
-			System.out.print(s);
+		for(String s1:arrStr) {
+			System.out.print(s1);
 		}
 		
 		String str1 = "Ciao*a*tutti";
@@ -102,15 +100,15 @@ public class ProvaArray {
 		//con il carattere di escape posso bypassare il warning per il carattere speciale *
 		String [] arrStr1 = str1.split("\\*");
 
-		for(String s:arrStr1) {
-			System.out.print(s);
+		for(String s2:arrStr1) {
+			System.out.print(s2);
 		}
 		
 		String str2="parola1,parola2 parola3-parola4?";
 		String [] arrStr2 = str2.split("[, -?]");//quello che voglio includere come limite lo inserisco tra le []
 		
-		for(String s:arrStr2) {
-			System.out.print(s);
+		for(String s3:arrStr2) {
+			System.out.print(s3);
 		}
 		
 		//**************************************
@@ -213,7 +211,6 @@ public class ProvaArray {
 			}
 		}
 		
-		 *********** FINE RIGA ********************/
 		//**************************************
 		
 		String[] frutti = {"pesche","arance","mirtilli", "lamponi"};

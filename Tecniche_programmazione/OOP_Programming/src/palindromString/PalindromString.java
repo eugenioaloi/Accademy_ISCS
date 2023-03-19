@@ -2,7 +2,7 @@ package palindromString;
 
 public class PalindromString {
 	
-	private String s;
+private String s;
 	
 	//constructor
 	public PalindromString(String s) {
