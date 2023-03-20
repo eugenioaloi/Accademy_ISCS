@@ -1,0 +1,11 @@
+La rubrica è composta dall'associazione di nome e num telefono
+
+Non ci possono essere più di 2 persone con lo stesso numero, pero una persona può avere più numeri
+		
+Realizzare il menù di gestione - chiedendo all'utente la funzione che vuole utilizzare
+
+1 -  inserisce il nome della persona con i relativi numeri
+2 - cancella una persona
+3 - ricerca una persona e stampa i suoi numeri
+4 - elenco di tutti i numeri con relativi numeri presenti in rubrica
+5 - uscita dal menù

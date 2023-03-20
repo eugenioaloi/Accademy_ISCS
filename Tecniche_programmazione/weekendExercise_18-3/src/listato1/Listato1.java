@@ -35,16 +35,20 @@ public class Listato1 {
 		System.out.println(Arrays.toString(lista2));
 		
 		int sumEq= 0;
+		int [] arrComuni = new int [lista2.length];
 		
 		for(int i=0;i<lista1.length;i++) {
 			for(int j=0;j<lista2.length;j++) {
 				if(lista1[i]==lista2[j]) {
 					sumEq += lista1[i];
+					arrComuni[i] = lista1[i];
+					//comuni += lista1[i]+", ";
 				}
 			}
 		}			
 			
 		//stampa la somma tra i termini uguali	
+		System.out.println(Arrays.toString(arrComuni));
 		System.out.println("La somma tra gli elementi uguali è: " + sumEq);
 		
 		sc.close();
