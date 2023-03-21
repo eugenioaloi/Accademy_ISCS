@@ -17,8 +17,10 @@ function saluta(){
 
 function stampaFilm(){
     let films = "Dune, Avatar, Stranger Things";
+    
     elenco.innerHTML ="Film del momento: " + films;
 }
 
 //on click è l'evento collegato al pulsante btn - la funzione saluta è collegata grazie all'evento
 btn.onclick = saluta;
+
