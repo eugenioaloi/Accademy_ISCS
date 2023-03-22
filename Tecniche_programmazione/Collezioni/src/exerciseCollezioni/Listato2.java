@@ -48,7 +48,7 @@ public class Listato2 {
 						numeri[i] = sc.nextInt();
 					}
 					rubrica.put(nome, numeri);
-					continue;
+					break;
 				}
 				case "2" ->{//Cancella una persona - OK
 					System.out.println("Inserisci il nome della persona che vuoi eliminare");
@@ -62,7 +62,7 @@ public class Listato2 {
 							System.out.println("Nome non presente nella rubrica");
 						}
 					}
-					continue;
+					break;
 				}
 				case "3" ->{//Ricerca una persona e stampa i numeri associati - OK
 					System.out.println("Inserisci il nome della persona che vuoi visualizzare");
@@ -75,7 +75,7 @@ public class Listato2 {
 							System.out.println("Nome non presente nella rubrica");
 						}
 					}
-					continue;
+					break;
 				}
 				case "4" ->{//Elenco di tutti i nomi con relativi numeri associati
 					//stampare rubrica
@@ -87,7 +87,7 @@ public class Listato2 {
 					}
 					
 					System.out.println("caso 4");
-					continue;
+					break;
 				}
 				case "5" ->{//Esce dal programma
 					flag = false;
