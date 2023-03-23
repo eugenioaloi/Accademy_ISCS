@@ -9,33 +9,66 @@ public class ContoCorrente {
 	
 	//se il conto è in rosso impedire alla persona di prelevare
 	
-	private int depositoIniziale,saldo;
-	private String nomeCliente, codConto;
 	
-	public ContoCorrente(int depositoIniziale, String nomeCliente, String codConto) {
-		setDepositoIniziale(depositoIniziale);
+	/*
+	 *@params depositoIniziale
+	 *@params saldo
+	 *@params nomeCliente
+	 *@params codConto
+	 * */
+	private int depositoIniziale;
+	private int saldo;
+	private String nomeCliente;
+	private int codConto;
+	
+	/*
+	 * @params codice, serve per generare un numero di codice ogni volta che si crea un oggetto di tipo Contocorrente
+	 * */
+	static int codice=0;
+	
+	public ContoCorrente(int depositoIniziale, String nomeCliente) {
+		setSaldo(depositoIniziale);
 		setNomeCliente(nomeCliente);
-		setCodConto(codConto);
+		codice++;
+		setCodConto(codice);
 	}
-
-	//preleva
+	
+	/*
+	 * metodo preleva -> controlla lo stato del conto e impedisce la persona il prelievo se rischia di andare in rosso
+	 * @params prelievo, int
+	 * @return int
+	 * */
 	public int preleva(int prelievo) {
-		depositoIniziale = saldo>0 && prelievo<saldo ? saldo -= prelievo: saldo;
-		return depositoIniziale;
+		boolean flag = saldo>0 && prelievo<saldo;
+		if(flag) {
+			saldo -= prelievo;
+		}else {
+			System.out.println("Mi dispiace " + nomeCliente +" non puoi prelevare " + prelievo + "€ perche rischi di ritrovarti il conto in rosso."
+					+ " Puoi prelevare al massimo " + saldo + "€");
+		}
+		return prelievo;
 	}
 
-	//versa
+	/*
+	 * metodo versa -> permette di aumentare il saldo rispetto al versamento effettuato
+	 * @params versamento, int
+	 * @return int
+	 * */
 	public int versa(int versamento) {
 		saldo += versamento;
-		return saldo;
+		return versamento;
 	}
 	
-	//stampa Saldo
+	/*
+	 * metodo stampaSaldo -> Stampa in console lo stato del conto (ammontare del Saldo)
+	 * */
 	public void stampasaldo() {
-		System.out.println("Sul conto ci sono:" + saldo + " €");
+		System.out.println("Sul conto ci sono: " + saldo + " €");
 	}
 	
-	//stampa Nome e Saldo del conto
+	/*
+	 * metodo stampaSaldoENome -> Stampa in console lo stato del conto (ammontare del Saldo e nome associato)
+	 * */
 	public void stampaSaldoENome() {
 		System.out.println("Sul conto di " + nomeCliente + " ci sono:" + saldo + " €" );
 	}
@@ -65,11 +98,11 @@ public class ContoCorrente {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public String getCodConto() {
+	public int getCodConto() {
 		return codConto;
 	}
 
-	public void setCodConto(String codConto) {
+	public void setCodConto(int codConto) {
 		this.codConto = codConto;
 	}
 	
