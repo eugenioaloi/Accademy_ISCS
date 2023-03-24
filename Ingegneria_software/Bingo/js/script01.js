@@ -1,39 +1,41 @@
 //elementi statici della pagina
 var btn = document.getElementById("btn");
 
-var numeri = [];
+var numeriEstratti = [];
+var tentativi = 0;
 
-
-//TO DO: implementare la funzione
 
 function estrai(){
-    let quanteEstrazioni = document.getElementById("numDaEstrarre").value;
-    for(let i=0;i<quanteEstrazioni;i++ ){
-        var numeroCasuale = Math.ceil(Math.random()*5);
-        console.log("num casuale: " + numeroCasuale)
-        //se il numero casuale c'è nell'array, non inserirlo, altrimenti mettilo
-        numeri[i]=numeroCasuale;
-    }
-   
 
-    console.log(numeri);
+    var numDaEstrarre = Number(Document.getElementById("numDaEstrarre").value);
+
+    if(numDaEstrarre<=90){
+
+        for(var i=0;i<numDaEstrarre;i++){
+
+            var numCasuale = Math.ceil(Math.random()*90);
+
+            if(!numeriEstratti.includes(numCasuale)){
+                numeriEstratti.push(numCasuale);
+            }else{
+                i--
+            }
+            
+            tentativi++;
+        }
+        console.log("Numeri estratti: " + numeriEstratti);
+        console.log("Tentativi: " + tentativi);
+    }else{
+        console.log("Non puoi estrarre più di 90 numeri");
+    }
 }
 
 btn.onclick = estrai;
+//btn.addEventListener("click",estrai,false); -> si può attivare il click anche con l'event listener
 
+//Perchè i-- nel ciclo. La condizione ci dice, se non trovi il numero mettilo nell'array, se lo trovi fai altro
+//la logica dietro è questa
 
-
-// //Math.ceil arrotonda all'intero maggiore
-// var numeroCasuale = Math.ceil(Math.random()*90);
-
-// //Math.floor() arrotonda all'intero minore
-// var numeroCasuale = Math.ceil((Math.random()*90)+1);
-
-// console.log(numeroCasuale);
-
-// //metodi utili per l'array
-// var mioArr = ["Dario","Paola","Marco","Anna"];
-// console.log(mioArr.indexOf("Dario"));//0
-
-// console.log(mioArr.indexOf("Gloria"));//-1
-// console.log(mioArr.includes("Gennaro"));//false
+//1°giro i = 0 -> 14
+//2°giro i = 1 -> 6;
+//3°giro i = 2 -> 14 adesso la i = 3 --> i = 2

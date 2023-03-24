@@ -1,7 +1,1 @@
-Cartella statement:
-04-esempio -> non stampa i risultati che mi aspetto
-
-Cartella bingo:
-01- implementare codice e fare diagramma di flusso - guardare appunti
-
-Cartella progetto_4, js/script01.js -> implementare il codice
+Nulla da segnalare
