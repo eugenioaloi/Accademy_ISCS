@@ -32,6 +32,13 @@ public class ContoCorrente {
 		codice++;
 		setCodConto(codice);
 	}
+	/*
+	 * metodo in grado di controllare se il saldo non è a zero
+	 * @return boolean
+	 * */
+	public boolean noPrelievo() {
+		return saldo>0 ;
+	}
 	
 	/*
 	 * metodo preleva -> controlla lo stato del conto e impedisce la persona il prelievo se rischia di andare in rosso
@@ -39,8 +46,7 @@ public class ContoCorrente {
 	 * @return int
 	 * */
 	public int preleva(int prelievo) {
-		boolean flag = saldo>0 && prelievo<saldo;
-		if(flag) {
+		if(noPrelievo() && prelievo<saldo) {
 			saldo -= prelievo;
 		}else {
 			System.out.println("Mi dispiace " + nomeCliente +" non puoi prelevare " + prelievo + "€ perche rischi di ritrovarti il conto in rosso."
@@ -72,7 +78,6 @@ public class ContoCorrente {
 	public void stampaSaldoENome() {
 		System.out.println("Sul conto di " + nomeCliente + " ci sono:" + saldo + " €" );
 	}
-
 	
 	public int getDepositoIniziale() {
 		return depositoIniziale;
@@ -105,8 +110,5 @@ public class ContoCorrente {
 	public void setCodConto(int codConto) {
 		this.codConto = codConto;
 	}
-	
-	
-	
 	
 }
