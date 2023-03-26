@@ -1,1 +1,7 @@
-Nulla da fare
+- implementare la classe Lampadina nel package listato 4 nel progetto exerciseOOP
+
+- run configurations dei package listato01, listato 02 per lanciare le classi. 
+Ho spostato i pacchetti e i moduli sono rimasti al progetto exercise OOP
+
+Error occurred during initialization of boot layer
+java.lang.module.FindException: Module exerciseOOP not found
