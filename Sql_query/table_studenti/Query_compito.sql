@@ -15,7 +15,7 @@ from studenti
 
 4- select cognome, nome, email, data_nascita
 from studenti
-where data_nascita >= '2000-03-30'
+where data_nascita like '20%'
 order by data_nascita asc
 
 5-select cognome, nome, email, data_nascita

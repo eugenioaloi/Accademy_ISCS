@@ -5,9 +5,9 @@ create table aule (
  nome varchar(50) not null,
  edificio varchar(50) not null,
  piano varchar(50),
- capienza smallint unsigned,
+ capienza tinyint unsigned,
  pc_docente enum('si','no'),
-microfono_docente enum('si','no'),
+ microfono_docente enum('si','no'),
  primary key(id)
 );
 
@@ -15,8 +15,8 @@ microfono_docente enum('si','no'),
 
 create table libro (
  id int auto_increment,
- titolo varchar(50) not null,
- prezzo int not null,
- pagine int,
+ titolo varchar(100) not null,
+ prezzo decimal not null,
+ pagine smallint,
  primary key(id)
 );
