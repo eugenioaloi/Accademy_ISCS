@@ -7,8 +7,11 @@ public class TestZaino {
 	
 	public static void main(String[] args) {
 		
-		//Se passo l'oggetto direttamente la logica funziona, con lo Scanner invece no.
-		//Capire perchè
+		//Se passo l'oggetto direttamente la logica funziona, con lo Scanner invece no. Non funziona perchè:
+		
+		/*il programma instanzia una nuova collezione. La corretta implementazione sarebbe quella di passare
+		una sola collezione istanziata ogni volta che si crea un oggetto di tipo Zaino a quel punto il programma
+		funziona con la sola collezione, invece che due*/
 		
 		Scanner sc = new Scanner(System.in);
 		

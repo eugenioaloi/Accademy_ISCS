@@ -37,7 +37,7 @@ public class Prodotto {
 
 	@Override
 	public String toString() {
-		return descrizione;
+		return descrizione +" - cod " + codBarre+ ", al prezzo di " + prezzo;
 	}
 
 }

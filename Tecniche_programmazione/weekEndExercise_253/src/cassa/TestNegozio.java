@@ -18,14 +18,14 @@ public class TestNegozio {
 		ArrayList<Prodotto> spesa = new ArrayList<>();
 		
 		for (int i = 0; i < nProdScansione; i++) {
-			System.out.println("Inserisci descrizione, codice a barre e prezzo del prodotto che vuoi scansionare");
-			
-			String codBarre = sc.nextLine();//si invertono gli input <------- CHIEDERE COME MAI
-			
-			String descrizione = sc.nextLine();
+			System.out.println("Inserisci codice a barre, descrizione  e prezzo del prodotto che vuoi scansionare");
 			sc.nextLine();
+			String codBarre = sc.nextLine();//si invertono gli input se non si pulisce prima lo scanner 
+			String descrizione = sc.nextLine();
 			double prezzo = sc.nextDouble();
 			spesa.add(new Prodotto(codBarre,descrizione,prezzo));
+			//spesa.add(new Prodotto(sc.nextLine(),sc.nextLine(),sc.nextDouble()));
+			
 		}
 		
 		cs1.stampaScontrino(spesa, oggi.getTime());

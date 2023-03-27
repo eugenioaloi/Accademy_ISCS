@@ -17,7 +17,7 @@ public class Cassa {
 			carrello.add(p);
 			totSpesa += p.getPrezzo();
 		}
-		//mi formatto la data
+
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
 		System.out.println("Il totale della spesa fatta il " + df.format(d) + " è di: " + totSpesa + " € \n" +

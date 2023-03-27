@@ -9,13 +9,11 @@ public class Quadrato {
 	}
 	
 	public int perimetro() {
-		int perimetro = lato*4;
-		return perimetro;
+		return lato*4;
 	}
 	
 	public int area() {
-		int area = (int) Math.pow(lato, 2);
-		return area;
+		return (int) Math.pow(lato, 2);
 	}
 	
 	public int getLato() {

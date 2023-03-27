@@ -1,3 +1,4 @@
 - cassa.TestNegozio: nello scanner si invertono gli input nella creazione di un nuovo oggetto -> Capire perchè
+
 - zaino.TestZaino: la logica pare funzionare se vengono schiantati degli oggetti direttamente nei metodi.
 	Dallo scanner con la crezione di un oggetto anonimo invece no -> Capire perchè
