@@ -5,10 +5,9 @@ public class Persona {
 	protected String nome, cognome, sesso;
 	protected int eta;
 	
-	public Persona(String nome, String cognome, String sesso,int eta) {
+	public Persona(String nome, String cognome, int eta) {
 		this.nome = nome;
 		this.cognome = cognome;
-		this.sesso = sesso;
 		this.eta = eta;
 	}
 	
