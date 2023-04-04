@@ -1,0 +1,6 @@
+Prima riga del file
+Seconda riga del file
+Terza riga del file
+riga 1 aggiunta
+riga 2 aggiunta
+riga 3 aggiunta

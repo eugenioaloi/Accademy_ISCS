@@ -1,0 +1,21 @@
+Nome: Steven Lavoro: ACCOUNT Salario: 24000.0 Nome: Steven
+ Nome: Neena Lavoro: PROG Salario: 17000.0 Nome: Neena
+ Nome: Lex Lavoro: CLERK Salario: 17000.0 Nome: Lex
+ Nome: Alexander Lavoro: PROG Salario: 9000.0 Nome: Alexander
+ Nome: Bruce Lavoro: PROG Salario: 6000.0 Nome: Bruce
+ Nome: David Lavoro: PROG Salario: 4800.0 Nome: David
+ Nome: Valli Lavoro: PROG Salario: 4800.0 Nome: Valli
+ Nome: Diana Lavoro: PROG Salario: 4200.0 Nome: Diana
+ Nome: Nancy Lavoro: PROG Salario: 12000.0 Nome: Nancy
+ Nome: Daniel Lavoro: ACCOUNT Salario: 9000.0 Nome: Daniel
+ Nome: John Lavoro: ACCOUNT Salario: 8200.0 Nome: John
+ Nome: Ismael Lavoro: ACCOUNT Salario: 7700.0 Nome: Ismael
+ Nome: Jose Manuel Lavoro: ACCOUNT Salario: 7800.0 Nome: Jose Manuel
+ Nome: Luis Lavoro: ACCOUNT Salario: 6900.0 Nome: Luis
+ Nome: Den Lavoro: CLERK Salario: 11000.0 Nome: Den
+ Nome: Alexander Lavoro: CLERK Salario: 3100.0 Nome: Alexander
+ Nome: Shelli Lavoro: CLERK Salario: 2900.0 Nome: Shelli
+ Nome: Sigal Lavoro: CLERK Salario: 2800.0 Nome: Sigal
+ Nome: Guy Lavoro: CLERK Salario: 2600.0 Nome: Guy
+ Nome: mario Lavoro: prog Salario: 2000.0 Nome: mario
+ 

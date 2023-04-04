@@ -1,0 +1,6 @@
+Nome: luca
+Cognome: rossi
+Voto: 10
+Nome: paola
+Cognome: bianchi
+Voto: 4

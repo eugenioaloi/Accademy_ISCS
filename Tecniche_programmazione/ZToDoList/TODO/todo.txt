@@ -1,7 +1,0 @@
-- implementare la classe Lampadina nel package listato 4 nel progetto exerciseOOP
-
-- aggiustare la gerarchia dei progeti e delle classi
-
-- finire l'esercizio sul registro
-
-- finire il progetto casino

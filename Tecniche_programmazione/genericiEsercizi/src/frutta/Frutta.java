@@ -1,5 +1,9 @@
 package frutta;
 
-public class Frutta {
+public abstract class Frutta {
+	
+	protected double peso;
+	
+	
 
 }
