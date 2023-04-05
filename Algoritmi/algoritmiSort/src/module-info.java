@@ -5,5 +5,5 @@
  * @author aloie
  *
  */
-module fibonacciSequence {
+module insertionSort {
 }

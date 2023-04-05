@@ -1,4 +1,4 @@
-package fibonacciSequence;
+package fibSeq;
 
 import java.util.Random;
 
@@ -33,4 +33,5 @@ public class FibonacciSequence {
 			}
 		
 	}
+
 }
