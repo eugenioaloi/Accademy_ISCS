@@ -5,5 +5,5 @@
  * @author aloie
  *
  */
-module Search_element {
+module linearSearch {
 }
