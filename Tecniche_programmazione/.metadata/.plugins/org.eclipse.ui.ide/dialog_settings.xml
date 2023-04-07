@@ -7,6 +7,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\aloie\Documents\GitHub\Accademy_ISCS\Tecniche_programmazione"/>
 			<item value="C:\Users\aloie\workspace_algoritmi\algoritmiDiRicerca"/>
 			<item value="C:\Users\aloie\workspace_Corso_Java"/>
 			<item value="C:\Users\aloie\workspace_Corso_Java\date_example"/>
