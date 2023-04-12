@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="usabile.Usabile"/>
-    <fullyQualifiedTypeName name="usabile.Computer"/>
-    <fullyQualifiedTypeName name="predaPredatore.Pesce"/>
-    <fullyQualifiedTypeName name="predaPredatore.Avvoltoio"/>
-    <fullyQualifiedTypeName name="predaPredatore.Coniglio"/>
     <fullyQualifiedTypeName name="predaPredatore.Preda"/>
     <fullyQualifiedTypeName name="predaPredatore.Predatore"/>
     <fullyQualifiedTypeName name="pesabile.Animale"/>
@@ -23,7 +18,6 @@
     <fullyQualifiedTypeName name="multimedia.Audio"/>
     <fullyQualifiedTypeName name="multimedia.Video"/>
     <fullyQualifiedTypeName name="multimedia.Film"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="casino.Moneta"/>
     <fullyQualifiedTypeName name="casino.Dado"/>
@@ -44,7 +38,6 @@
     <fullyQualifiedTypeName name="frutta.Cesto"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="scuola.Studente"/>
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -55,9 +48,16 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="javax.security.auth.SubjectDomainCombiner"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="impiegatiDB.Persona"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="impiegatiDB.Impiegato"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="usabilita.Studente"/>
+    <fullyQualifiedTypeName name="usabilita.ElencoStudenti"/>
+    <fullyQualifiedTypeName name="affidabilita.Calculator"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="efficenza.ConfrontoStringhe"/>
 </qualifiedTypeNameHistroy>
