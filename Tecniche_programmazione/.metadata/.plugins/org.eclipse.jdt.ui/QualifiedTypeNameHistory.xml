@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="predaPredatore.Preda"/>
     <fullyQualifiedTypeName name="predaPredatore.Predatore"/>
     <fullyQualifiedTypeName name="pesabile.Animale"/>
     <fullyQualifiedTypeName name="usabile.Macchina"/>
@@ -52,7 +51,6 @@
     <fullyQualifiedTypeName name="impiegatiDB.Persona"/>
     <fullyQualifiedTypeName name="impiegatiDB.Impiegato"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="usabilita.Studente"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="affidabilita.Calculator"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="efficenza.ConfrontoStringhe"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>

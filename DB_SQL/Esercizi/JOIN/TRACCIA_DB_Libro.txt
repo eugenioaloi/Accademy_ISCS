@@ -1,0 +1,64 @@
+/* DB: libro, editore
+1)
+seleziona il titolo, le pagine, il prezzo e l'editore
+il cui editore è 'bompiani' e ordinate per titolo
+*/
+
+/*DB: libro, editore
+2)
+seleziona il titolo, le pagine, il prezzo e l'editore
+il cui prezzo è inferiore di 10 euro e ordinate per prezzo
+*/
+
+/*
+3)DB: libro, editore
+seleziona il titolo, le pagine, il prezzo e l'editore
+il cui prezzo è inferiore di 10 euro e l'editore è 'mondadori' e ordinate per prezzo
+*/
+
+/*
+4)DB: libro, editore
+seleziona il titolo, le pagine, il prezzo e l'editore
+il cui titolo comincia per 'il' o 'la' e ordinate per prezzo
+*/
+
+/*
+5)DB: libro, autore
+seleziona il titolo, le pagine, il prezzo, il nome e il cognome dell'autore
+la cui nazionalità è 'en' o 'it' e ordinate per nazionalita
+*/
+
+/*
+6)
+seleziona il titolo, le pagine, il prezzo, il nome e il cognome dell'autore
+il cui cognome comincia per 'c' e ordinate per nazionalita
+*/
+
+/*
+7)DB 
+seleziona il titolo, le pagine, il prezzo, l'editore e il cognome dell'autore
+e ordinate per titolo
+*/
+
+/*
+8)DB: libro, autore, editore
+seleziona il titolo, le pagine, il prezzo, l'editore e il cognome dell'autore
+il cui prezzo è maggiore di 10 euro
+e ordinate per prezzo dal più caro al più economico
+*/
+
+/*
+9) selezionate solo i libri editi da mondadori (proiettate titolo e prezzo),
+ordinateli per prezzo, dal più caro al più economico
+*/
+
+/*
+10) selezionate solo i libri il cui titolo comincia con 'il ...' (proiettate solo titolo),
+ordinateli per titolo
+*/
+
+/*
+11)
+Selezionare nome e cognome dell'autore, titolo, prezzo dei libri, scritti da autori di nazionalità inglese
+e ordinateli per autore
+*/

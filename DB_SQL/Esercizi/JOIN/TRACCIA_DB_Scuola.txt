@@ -1,0 +1,32 @@
+-- Query su database SCUOLA usate la sintassi join;
+
+-- 1) seleziona nome, cognome del docente, titolo del corso di cui è insegnante e prezzo del corso che insegna
+
+-- 2) seleziona i corsi che costano meno di 200€
+
+-- 3) seleziona i corsi che costano di più e ordinali per titolo
+
+-- 4) seleziona nome, cognome dello studente, nome del corso a cui è iscritto. Ordina per cognome studente
+
+-- 5) Conta gli studenti iscritti per ciascun corso
+
+-- 6) Conta gli studenti iscritti al corso "Java"
+
+-- 7) seleziona cognome del docente, nome del corso che insegna e prezzo relativo
+
+-- 8) seleziona nome, cognome e email del docente che insegna nel corso "CSS"
+
+-- 9) seleziona cognome del docente, nome del corso che insegna
+-- considerando anche i docenti a cui non è stato assegnato alcun corso. Ordina per cognome docente.
+
+-- 10) seleziona i corsi a cui non è stato assegnato alcun docente. Ordina per titolo corso
+
+-- 11) seleziona elenco degli studenti non ancora iscritti ad alcun corso e ordinali per cognome
+
+-- 12) seleziona solo elenco dei corsi senza iscrizioni e ordinali per corso
+
+-- 13) seleziona cognome degli studenti iscritti, nome del corso a cui sono iscritti e nome e cognome del docente
+
+-- 14) seleziona cognome degli studenti iscritti al corso "CSS" e nome e cognome del docente
+
+-- 15) seleziona i corsi, la quantità degli iscritti per ciascuno, il prezzo del corso e il valore delle iscrizioni per quel corso
