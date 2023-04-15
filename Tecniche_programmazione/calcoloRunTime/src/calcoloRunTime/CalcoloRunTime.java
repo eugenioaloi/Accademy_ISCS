@@ -7,6 +7,7 @@ public class CalcoloRunTime {
 		
 		//******* AVVIO DEL PROGRAMMA
 		
+		// aggiunta del thread
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {

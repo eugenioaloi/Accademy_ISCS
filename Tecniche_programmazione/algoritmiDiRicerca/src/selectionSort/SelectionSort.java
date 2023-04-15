@@ -3,8 +3,7 @@ package selectionSort;
 public class SelectionSort {
 	/* Selection sort = cerca in un array e tiene traccia in ogni iterazione del valore minimo.
 	 * alla fine scambia le variabili alla fine di ogni iterazione
-	 * Algoritmo poco performante con data set grandi
-	 * */
+	 * Algoritmo poco performante con data set grandi */
 	
 	public static void main(String[] args) {
 		
@@ -15,7 +14,6 @@ public class SelectionSort {
 		for (int n: arr) {
 			System.out.print(n);
 		}
-			
 		
 	}
 
