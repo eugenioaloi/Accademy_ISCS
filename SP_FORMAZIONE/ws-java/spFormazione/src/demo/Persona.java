@@ -1,5 +1,6 @@
 package demo;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Persona {
@@ -13,7 +14,14 @@ public class Persona {
 			this.cognome = cognome;
 			this.data_nascita = data_nascita;
 		}
-
+		
+		public int eta(Date d) {
+			Calendar cal = Calendar.getInstance();
+			int anno_nascita = d.getYear()+1900;
+			int eta = cal.get(Calendar.YEAR)-anno_nascita;
+			return eta;
+		}
+		
 		public String getNome() {
 			return nome;
 		}
@@ -42,8 +50,5 @@ public class Persona {
 		public String toString() {
 			return "Persona [nome=" + nome + ", cognome=" + cognome + ", data_nascita=" + data_nascita + "]";
 		}
-		
-		
-		
 
 }

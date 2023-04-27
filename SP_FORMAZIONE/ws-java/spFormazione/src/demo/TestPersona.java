@@ -30,6 +30,8 @@ public class TestPersona {
 		
 		System.out.println(p);
 		
+		System.out.println("eta: " + p.eta(p.getData_nascita()));
+		
 		sc.close();
 		
 	}
