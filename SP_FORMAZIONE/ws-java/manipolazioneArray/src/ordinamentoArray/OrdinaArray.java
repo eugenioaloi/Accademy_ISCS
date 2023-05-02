@@ -1,4 +1,4 @@
-package ordinamento;
+package ordinamentoArray;
 
 public class OrdinaArray {
 	

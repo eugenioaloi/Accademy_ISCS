@@ -1,4 +1,4 @@
-package palindromo;
+package stringaPalindroma;
 
 public class Palindroma {
 	
@@ -14,7 +14,7 @@ public class Palindroma {
 		
 	}
 	
-	private static String comparableString(String s) {
+	public static String comparableString(String s) {
 		String sComparable = "";
 		for(int i = s.length()-1;i>=0;i--) {
 			sComparable += s.charAt(i);
@@ -23,12 +23,12 @@ public class Palindroma {
 		return sComparable;
 	}
 
-	private static boolean checkPalindrom(String s, String invertiString) {
+	public static boolean checkPalindrom(String s, String invertiString) {
 		boolean palindrom= false;
 		if(s.contentEquals(invertiString)) {
 			palindrom = true;
 		}
 		return palindrom;
 	}
-	
+
 }

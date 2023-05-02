@@ -1,4 +1,4 @@
-package ordinamento;
+package ordinamentoArray;
 
 import java.util.Arrays;
 
@@ -11,4 +11,5 @@ public class Ordinamento {
 		
 		System.out.println(Arrays.toString(numeri));
 	}
+
 }

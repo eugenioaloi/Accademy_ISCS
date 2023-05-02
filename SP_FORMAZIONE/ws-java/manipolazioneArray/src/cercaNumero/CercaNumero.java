@@ -1,11 +1,12 @@
 package cercaNumero;
 
-public class cercaNumero {
-	public static void main(String[] args) {
+public class CercaNumero {
+	
+public static void main(String[] args) {
 		
 		int [] num = {1, 2, 3, 4, 5, 7, 8, 9};
 		
-		int numMagico = 91;
+		int numMagico = 7;
 
 		boolean trovato = ricercaBinaria(num,numMagico);
 
@@ -32,5 +33,5 @@ public class cercaNumero {
 		}
 		return trovato;
 	}
-		
+
 }

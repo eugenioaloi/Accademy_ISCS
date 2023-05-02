@@ -3,6 +3,7 @@ package checkString;
 import java.util.Scanner;
 
 public class CheckString {
+	
 	public static void main(String[] args) {
 		String s = "123 ciao 0.2";
 		
@@ -27,7 +28,5 @@ public class CheckString {
 		
 		return true;
 	}
-	
-	
 
 }
