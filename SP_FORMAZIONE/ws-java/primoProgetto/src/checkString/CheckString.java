@@ -9,7 +9,7 @@ public class CheckString {
 		System.out.println(checkString(s));
 	}
 
-	private static boolean checkString(String s) {
+	public static boolean checkString(String s) {
 		
 		Scanner sc = new Scanner(s);
 		
