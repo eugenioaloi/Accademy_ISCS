@@ -20,12 +20,14 @@ public class ManipolaMatrice {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		ManipolaMatrice mm = new ManipolaMatrice();
+		
 		System.out.println("Inserisci il numero di righe");
 		int righe= sc.nextInt();
 		System.out.println("Inserisci il numero di colonne");
 		int colonne = sc.nextInt();
 		
-		leggiDimensioni(righe, colonne);
+		mm.leggiDimensioni(righe, colonne);
 		
 		//Si passa il file che si vuole leggere
 		File file = new File("matrice.txt");
@@ -49,7 +51,7 @@ public class ManipolaMatrice {
 	}//main
 	
 	//crea una matrice di dimensione dinamica
-	public static int[] leggiDimensioni(int righe, int colonne) {
+	public int[] leggiDimensioni(int righe, int colonne) {
 		
 		int [] dimMatrice = {righe, colonne};
 		
