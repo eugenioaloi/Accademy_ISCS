@@ -12,4 +12,8 @@ Dettaglio:
 
 --- CORSO SP-FORMAZIONE
 
-1-
+1- Progetti in linguaggio Java
+2- Slide del corso
+
+--- TEORIA COLLOQUI
+1- Teoria per colloqio (Teoria e questionario)
