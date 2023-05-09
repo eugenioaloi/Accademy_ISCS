@@ -6,5 +6,4 @@
  *
  */
 module prj {
-	requires junit;
 }
