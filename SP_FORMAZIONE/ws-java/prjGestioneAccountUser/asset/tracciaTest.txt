@@ -1,0 +1,37 @@
+(OK, TEST)	 boolean addUser(String idUser, String nome, String Cognome, String indirizzo); -- va bene
+	 
+(OK, TEST)	 boolean addMail(String idUser, String mail); -- va bene
+	 
+(OK, TEST)	 boolean existsUser(String idUser); -- va bene
+	 
+(OK, TEST)	 boolean userHasMail(String idUser); -- va bene
+ 	 
+(OK)	 Optional<T> user(String idUser); --> manca test
+	 
+(OK,TEST )	 String[] idUsers(int sortType); -- va bene
+
+(OK, TEST)	 String[] userMails(String idUser); -- va bene
+	 	 
+(OK)	 T[] users(int sortType); --> manca test
+ 
+(OK, TEST)	 T firstUser();
+	 
+(OK, TEST)	 T lastUser();
+	 
+(OK)	 T[] firstUsers(int numUsers); --> manca test
+	 
+(OK)	 T[] lastUsers(int numUsers); --> manca test
+	 
+(OK)	 String[] discardedRows(); --> manca test
+	 
+(OK)	 String[] allMails(); --> manca test
+
+*******************************************
+
+Fare i test dei metodi aggiunti dopo l'interfaccia
+
+- public boolean addRigakO(String riga); 
+- public boolean addRigaOK(String riga); 
+- public boolean checkMail(String s);
+- public boolean isMail(String s) 
+- public String[] allUsersArray() 
