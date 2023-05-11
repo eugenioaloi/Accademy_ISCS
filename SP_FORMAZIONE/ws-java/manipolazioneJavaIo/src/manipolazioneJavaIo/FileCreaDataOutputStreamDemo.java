@@ -35,32 +35,35 @@ public class FileCreaDataOutputStreamDemo {
 	}
 	
 	public void leggiOutputStream(FileInputStream filePath) {
-		char lineSep = System.getProperty("line.separator").charAt(0);
-		StringBuilder sb = new StringBuilder();
-		
+		char lineSep=System.getProperty("line.separator").charAt(0);
 		try {
+			
+			DataInputStream ind=new DataInputStream(new FileInputStream("fileStrano.txt"));
+			double d;
+			int i;
+			//double total;
+			char chr=' ';
+			StringBuilder s =new StringBuilder();
 			while(true) {
-				DataInputStream dis = new DataInputStream(filePath);
-				double prices = 0.0;
-				int units = 0;
-				double total=0;
-				String descs = "";
-				prices = dis.readDouble();
-				units = dis.readInt();
-				total += prices*units;
+				if(chr==EOF) {
+					break;
+				}
+				d=ind.readDouble();
+				i=ind.readInt();
 				
-				while (dis.readChar()!=lineSep&&c!=EOF) {
-					sb.append(c);
+				while((chr=ind.readChar())!=lineSep) {
+					s.append(chr);
+					
 				}
 				
-				sb = new StringBuilder(20);
+				System.out.println(d+" "+i+" "+s);
+				s =new StringBuilder();
 				
-				System.out.println(sb);
 				
 			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
+			//ind.close();
+		}catch(Exception e) {
+			e.getMessage();
 		}
 		
 	}

@@ -24,7 +24,6 @@ public class MainDemo {
 		
 		BufferReaderWrite brw = new BufferReaderWrite();
 		brw.bufferWrite();
-		 */
 		
 		FileCreaDataOutputStreamDemo creaData = new FileCreaDataOutputStreamDemo();
 		try {
@@ -33,12 +32,15 @@ public class MainDemo {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		 */
 		
-		
-		
+		try {
+			ReadFromScanner rfs = new ReadFromScanner();
+			rfs.readFile();
+		} catch (Exception e) {
+			
+		}
 		
 	} 
-	
-	
 
 }
