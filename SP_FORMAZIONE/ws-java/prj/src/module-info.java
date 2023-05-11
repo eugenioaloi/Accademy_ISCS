@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author aloie
- *
- */
-module prj {
-}

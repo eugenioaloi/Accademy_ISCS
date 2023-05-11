@@ -7,43 +7,40 @@ public class SchedaPersona implements ISchedaPersona {
 	private String nome;// contiene il nome e cognome
 	private String indirizzo;
 	private String num_telefono; 
-
-	public SchedaPersona() {}
+	
+	public SchedaPersona() {};
 	
 	public SchedaPersona(String nome, String indirizzo, String num_telefono) {
-		super();
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 		this.num_telefono = num_telefono;
 	}
+	
+	@Override
+	public boolean contains(String s) {
+		String sUpper = s.toUpperCase();
+		
+		if(nome.toUpperCase().contains(sUpper)
+				|| indirizzo.toUpperCase().contains(sUpper)
+				|| num_telefono.toUpperCase().contains(sUpper))
+		{
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public boolean equals(Object s) {
-		SchedaPersona sp = new SchedaPersona(nome,indirizzo,num_telefono);
 		if(s instanceof SchedaPersona) {
-			String str = s.toString();
-			if (sp.contains(str)){
-				return true;
+			SchedaPersona sp = (SchedaPersona) s;
+			if(contains(sp.nome)
+				||contains(sp.indirizzo)
+				||contains(sp.num_telefono)) {
+					return true;
 			}
 		}
 		return false;
 	}
-	
-	@Override
-	public boolean contains(String s) {
-		if(s.indexOf(nome)>=0) {
-			return true;
-		}
-		if(s.indexOf(indirizzo)>=0) {
-			return true;
-		}
-		if(s.indexOf(num_telefono)>=0) {
-			return true;
-		}
-		return false;
-	}
-	
-	
 
 	public String getNome() {
 		return nome;
@@ -71,7 +68,7 @@ public class SchedaPersona implements ISchedaPersona {
 
 	@Override
 	public String toString() {
-		return nome + indirizzo + num_telefono ;
+		return nome + " " + indirizzo + " " + num_telefono ;
 	}
 	
 }

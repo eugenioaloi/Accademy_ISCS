@@ -1,4 +1,4 @@
-package view;
+package soluzione;
 
 import controller.GestioneAccount;
 import model.User;
