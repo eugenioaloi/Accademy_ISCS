@@ -1,9 +1,0 @@
-19,99 12 T-shirt
-
-9,99 8 mug
-
-15,99 13 duke
-
-3,99 29 pin
-
-4,99 50 key-chain
