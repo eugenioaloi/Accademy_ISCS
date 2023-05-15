@@ -60,8 +60,8 @@ public class Parole implements IParole{
 	}
 
 	@Override
-	public int count(String parola) {
-		return (int) listaParole.stream().
+	public long count(String parola) {
+		return listaParole.stream().
 				filter(el->el.equals(parola))
 				.count();
 	}

@@ -9,7 +9,7 @@ public interface IParole {
 	String[] parole();
 	
 	/*restituisce il numero di occorrenze della parola*/
-	int count(String parola);
+	long count(String parola);
 	
 	/*Restituisce la parola alfab + grande*/
 	String parolaMax();
