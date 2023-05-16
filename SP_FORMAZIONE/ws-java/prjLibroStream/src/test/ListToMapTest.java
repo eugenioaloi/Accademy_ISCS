@@ -30,18 +30,16 @@ class ListToMapTest {
 	@Test
 	void testlistToMapOldStyle() {
 		ListToMap ltm = new ListToMap();
-		List<Book> bookLasList = new LinkedList<>();
-		bookLasList.add(new Book("A123", "book1", "author1",1.5,"it"));
-		bookLasList.add(new Book("A456", "book2", "author2",2.5,"it"));
-		bookLasList.add(new Book("A789", "book3", "author3",2.0,"en"));
-		List<String> keyList = new ArrayList<>();
-		Map<String, Book> bookMap = ltm.listToMapOldStyle(bookLasList);
-		for(String str:bookMap.keySet()) {
-			keyList.add(str);
-		}
-		assertTrue(keyList.size()==3);
-		String [] keyArr = {"A789", "A456", "A123"};
-		assertArrayEquals(keyList.toArray(new String[3]), keyArr);
+		List<Book> bookList = List.of(new Book("A123", "book1", "author1",1.5,"it"),
+				new Book("A456", "book2", "author2",2.5,"it"),
+				new Book("A789", "book3", "author3",2.0,"en"));
+		Map<String, Book> bookMap = ltm.listToMapOldStyle(bookList);
+		String [] arr = bookMap.keySet()
+				.stream().map(b->b)
+				.collect(Collectors.toList())
+				.toArray(new String[0]);
+		assertTrue(arr.length==3);
+		assertArrayEquals(arr, new String[] {"A789", "A456", "A123"});
 	}
 	
 	@Test
@@ -160,17 +158,8 @@ class ListToMapTest {
 		bookList.add(new Book("A456", "book2", "author2",2.5,"it"));
 		bookList.add(new Book("A789", "book3", "author3",2.0,"en"));
 		Map<Boolean, List<Book>> mappaLibri = ltm.priceGreaterThen(bookList,1.5);
-		boolean [] arrBul = {false,true};
 		assertEquals(mappaLibri.size(), 2);
 		//assertArrayEquals(arrBul, lstK.toArray(new boolean[2]));
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
