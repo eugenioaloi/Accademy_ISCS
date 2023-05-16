@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
@@ -25,13 +26,13 @@ public class ListToMap implements IListToMap {
 	@Override
 	public Map<String, Book> listToMapWithLambda(List<Book> bookList) {
 		return bookList.stream()
-				.collect(Collectors.toMap(Book::getIsbn, b->b));
+				.collect(Collectors.toMap(Book -> Book.getIsbn(), b->b));//lambda ->
 	}
 
 	@Override
 	public Map<String, Book> listToMapWithTheReference(List<Book> bookList) {
 		return bookList.stream()
-				.collect(Collectors.toMap(Book::getIsbn, b->b));
+				.collect(Collectors.toMap(Book::getIsbn, b->b));//:: reference
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class ListToMap implements IListToMap {
 	@Override
 	public Map<String, Book> listToMapWithNoDuplicateList(List<Book> bookList) {
 		return bookList.stream()
-				.collect(Collectors.toMap(Book::getIsbn, Function.identity(),(first,second)->first));
+				.collect(Collectors.toMap(Book::getIsbn, Function.identity(),(first,second)->first));//non ammette duplicati
 	}
 
 	@Override
@@ -58,12 +59,17 @@ public class ListToMap implements IListToMap {
 				.filter(b->b.getIsbn().compareToIgnoreCase(isbn)>0)
 				.collect(Collectors.groupingBy(Book::getIsbn));
 	}
+	
+	@Override
+	public Map<Boolean, List<Book>> priceGreaterThen(List<Book> bookList, double price) {
+		return bookList.stream().collect(Collectors.partitioningBy(b->b.getPrice()>price));
+	}
 
 	@Override
 	public String bookNamesJoined(List<Book> bookList) {
 		return bookList.stream()
 			.map(Book::getDesc)
-			.collect(Collectors.joining(","));
+			.collect(Collectors.joining(",","[","]"));
 	}
 
 	@Override
@@ -96,8 +102,8 @@ public class ListToMap implements IListToMap {
 		return bookList.stream()
 				.filter(el->el.getNationality().contentEquals(nazione))
 				.map(Book::getAuthor)
-				.toArray(String[]::new);
+				.collect(Collectors.toList())
+				.toArray(new String[0]);
 	}
-
 
 }

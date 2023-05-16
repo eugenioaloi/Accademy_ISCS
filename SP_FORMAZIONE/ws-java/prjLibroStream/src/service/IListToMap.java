@@ -47,6 +47,9 @@ public interface IListToMap {
 
 	//restituisce tutti gli autori di una determinata nazione
 	String [] bookAuthorsNat(List<Book> bookList, String nazione);
+
+	//restituisce i libri con prezzo maggiora all'input
+	Map<Boolean, List<Book>> priceGreaterThen(List<Book> bookList, double price);
 	
 	
 	
