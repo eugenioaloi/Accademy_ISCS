@@ -93,7 +93,7 @@ class ListToMapTest {
 		bookList.add(new Book("A123", "book1", "author1",1.5,"it"));
 		bookList.add(new Book("A456", "book2", "author2",2.5,"it"));
 		bookList.add(new Book("A789", "book3", "author3",2.0,"en"));
-		assertEquals("book1,book2,book3", ltm.bookNamesJoined(bookList));
+		assertEquals("[book1,book2,book3]", ltm.bookNamesJoined(bookList));
 	}	
 	
 	@Test
@@ -150,6 +150,19 @@ class ListToMapTest {
 		bookList.add(new Book("A456", "book2", "author2",2.5,"it"));
 		bookList.add(new Book("A789", "book3", "author3",2.0,"en"));
 		assertEquals("author3", ltm.bookAuthorsNat(bookList,"en")[0]);
+	}
+	
+	@Test
+	void testPriceGreaterThen() {
+		ListToMap ltm = new ListToMap();
+		List<Book> bookList = new LinkedList<>();
+		bookList.add(new Book("A123", "book1", "author1",1.5,"it"));
+		bookList.add(new Book("A456", "book2", "author2",2.5,"it"));
+		bookList.add(new Book("A789", "book3", "author3",2.0,"en"));
+		Map<Boolean, List<Book>> mappaLibri = ltm.priceGreaterThen(bookList,1.5);
+		boolean [] arrBul = {false,true};
+		assertEquals(mappaLibri.size(), 2);
+		//assertArrayEquals(arrBul, lstK.toArray(new boolean[2]));
 	}	
 	
 	
