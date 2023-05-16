@@ -23,8 +23,11 @@ public class HelloThread extends Thread{
 		}
 		
 		long b=System.currentTimeMillis();
+		
 		System.out.println(b-a);
+		
 		long c=System.currentTimeMillis();
+		
 		T1.start();
 		T2.start();
 		
@@ -40,22 +43,23 @@ public class HelloThread extends Thread{
 			}
 		
 		long d=System.currentTimeMillis();
+		
 		System.out.println((d-c));
 
 	}
 	
 	static class P1 implements Runnable{
 		private char ch;
-		private List<Integer> li;
-		public P1(char c) {
-			this.ch=c;
+		private List<Integer> lst;
+		public P1(char ch) {
+			this.ch=ch;
 		}
 	
 		@Override
 		public void run() {
-			li=new ArrayList<Integer>();
+			lst=new ArrayList<Integer>();
 			for(int i=0; i<1000000;i++) {
-				li.add(i+1);
+				lst.add(i+1);
 				//System.out.println("thread corrente A: "+ Thread.currentThread()+" elemento "+ li.get(i));
 			}
 			
@@ -64,17 +68,17 @@ public class HelloThread extends Thread{
 	
 	static class P2 implements Runnable{
 		private char ch;
-		private List<Integer> li;
+		private List<Integer> lst;
 		
-		public P2(char c) {
-			this.ch=c;
+		public P2(char ch) {
+			this.ch=ch;
 		}
 		@Override
 		public void run() {
 			
-			li=new ArrayList<Integer>();
+			lst=new ArrayList<Integer>();
 			for(int i=0; i<1000000;i++) {
-				li.add(i+1);
+				lst.add(i+1);
 				//System.out.println("thread corrente B: "+ Thread.currentThread()+" elemento "+ li.get(i));
 			}
 			
