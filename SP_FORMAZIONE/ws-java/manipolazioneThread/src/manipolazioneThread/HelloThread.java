@@ -14,11 +14,11 @@ public class HelloThread extends Thread{
 		List<Integer> lista2 =new ArrayList<>();
 		
 		long a=System.currentTimeMillis();
-		for(int i=0; i<1000000;i++) {
+		for(int i=0; i<10_000_000;i++) {
 			lista1.add(i+1);
 		}
 		
-		for(int i=0; i<1000000;i++) {
+		for(int i=0; i<10_000_000;i++) {
 			lista2.add(i+1);
 		}
 		
@@ -58,7 +58,7 @@ public class HelloThread extends Thread{
 		@Override
 		public void run() {
 			lst=new ArrayList<Integer>();
-			for(int i=0; i<1000000;i++) {
+			for(int i=0; i<10_000_000;i++) {
 				lst.add(i+1);
 				//System.out.println("thread corrente A: "+ Thread.currentThread()+" elemento "+ li.get(i));
 			}
@@ -77,7 +77,7 @@ public class HelloThread extends Thread{
 		public void run() {
 			
 			lst=new ArrayList<Integer>();
-			for(int i=0; i<1000000;i++) {
+			for(int i=0; i<10_000_000;i++) {
 				lst.add(i+1);
 				//System.out.println("thread corrente B: "+ Thread.currentThread()+" elemento "+ li.get(i));
 			}
