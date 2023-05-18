@@ -91,6 +91,7 @@ CREATE TABLE AereoEffettuaVolo (
    idAereo char(4) NOT NULL
   ,idVolo char(7) NOT NULL
   ,oraPartenza char(2) NOT NULL
+  ,oraArrivo char(2) NOT NULL
   ,PRIMARY KEY (idAereo, idVolo)
  )
  ; 
@@ -115,8 +116,6 @@ CREATE TABLE CompagniaPossiedeAereo (
  )
  ; 
 
-
-
 DROP TABLE IF EXISTS DipPossiedeAbil;
 CREATE TABLE DipPossiedeAbil (
    idDipendente char(5) NOT NULL
@@ -126,6 +125,24 @@ CREATE TABLE DipPossiedeAbil (
   ,PRIMARY KEY (idDipendente, idAbilitazione)
  );
  
+DROP TABLE IF EXISTS AereoEffettuaVolo;
+CREATE TABLE AereoEffettuaVolo (
+   idAereo char(4) NOT NULL
+  ,idVolo char(7) NOT NULL
+  ,oraPartenza char(2) NOT NULL
+  ,oraArrivo char(2) NOT NULL
+  ,PRIMARY KEY (idAereo, idVolo)
+ ); 
+
+
+INSERT INTO aereoeffettuavolo (idAereO, idVolo, oraPartenza,oraArrivo) 
+VALUES('A001', 'VL00001', '15','16'),
+('A002', 'VL00005', '15','19'),
+('A003', 'VL00003', '18','19'),
+('A004', 'VL00002', '16','17'),
+('A005', 'VL00002', '16','17');
+
+
 INSERT INTO dippossiedeabil (idDipendente, idAbilitazione, dataAbilitazione, rate) 
 VALUES('DP001', 'A1', '2022-01-01', '8'),
 ('DP002', 'A4', '2020-01-01', '9'),
@@ -145,12 +162,6 @@ VALUES('AEP001', 'VL00001', 'P'),
 ('AEP003', 'VL00004', 'P'),
 ('AEP005', 'VL00003', 'P');
 
-INSERT INTO aereoeffettuavolo (idAereO, idVolo, oraPartenza) 
-VALUES('A001', 'VL00001', '9'),
-('A004', 'VL00002', '12'),
-('A005', 'VL00002', '18'),
-('A003', 'VL00003', '16'),
-('A002', 'VL00005', '24');
 
 INSERT INTO cliente (idCliente, nome, cognome, eta, email) 
 VALUES('CL001', 'Simone', 'Di carlo', 25, 's.carlo@gmail.com'),

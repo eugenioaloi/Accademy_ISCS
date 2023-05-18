@@ -32,4 +32,8 @@ cliente, su n. voli, scali, puntualità, manutenzioni effettuate/previste
 
 9) Si devono gestire inoltre i piloti abilitati a un dato aereo 
 in caso di sostituzioni e programmazione voli.
+
+---------------------
+
+entita: aereoporti, voli, passeggeri, equipaggio, imbarco?, 
  
