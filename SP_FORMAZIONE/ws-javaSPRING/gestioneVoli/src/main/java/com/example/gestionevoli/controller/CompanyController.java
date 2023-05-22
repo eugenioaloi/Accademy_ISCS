@@ -2,7 +2,6 @@ package com.example.gestionevoli.controller;
 
 import org.springframework.http.HttpHeaders;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,15 +25,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.example.gestionevoli.entity.Company;
 import com.example.gestionevoli.service.ICompanyService;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("voli")
+@RequestMapping("gestioneCompagnia")
 public class CompanyController {
 	
 	@Autowired
 	private ICompanyService companyService;
-
 	
-	@GetMapping(value = "company/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = "compagnia/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CompanyInfo> getCompanyId(@PathVariable("id") String id) {
 		CompanyInfo ob = new CompanyInfo();
 		if(!companyService.existsById(id)) {
@@ -43,7 +43,7 @@ public class CompanyController {
 		return new ResponseEntity<CompanyInfo>(ob, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<CompanyInfo>> getAllCompanies() {
 		List<CompanyInfo> resCompanyInfo = new ArrayList<>();
 		List<Company> companyList = companyService.getAllComapanies();
@@ -56,7 +56,7 @@ public class CompanyController {
 		return new ResponseEntity<List<CompanyInfo>>(resCompanyInfo, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> addCompany(@RequestBody CompanyInfo companyInfo, UriComponentsBuilder builder) {
 		Company company = new Company();
 		BeanUtils.copyProperties(companyInfo, company);
@@ -69,7 +69,7 @@ public class CompanyController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PutMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CompanyInfo> updateCompany(@RequestBody CompanyInfo companyInfo) {
 		Company company = new Company();
 		BeanUtils.copyProperties(companyInfo, company);
@@ -83,7 +83,7 @@ public class CompanyController {
 	}
 	
 	
-	@DeleteMapping(value= "company/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
+	@DeleteMapping(value= "compagnia/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> deleteCompany(@PathVariable("id") String id, UriComponentsBuilder builder) {
 		if (!companyService.existsById(id)) {
 			HttpHeaders headers = new HttpHeaders();
@@ -93,15 +93,5 @@ public class CompanyController {
 		companyService.deleteCompany(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -11,9 +11,6 @@ import jakarta.persistence.Table;
 @Table(name = "compagnia")
 public class Company implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id

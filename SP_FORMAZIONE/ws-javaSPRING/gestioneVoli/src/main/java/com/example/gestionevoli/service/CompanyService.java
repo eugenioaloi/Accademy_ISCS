@@ -17,7 +17,6 @@ public class CompanyService implements ICompanyService {
 
 	@Override
 	public List<Company> getAllComapanies() {
-		// TODO Auto-generated method stub
 		List<Company> list = new ArrayList<>(); 
 		companyRepository.findAll().forEach(c -> list.add(c));
 		return list;
@@ -25,20 +24,17 @@ public class CompanyService implements ICompanyService {
 
 	@Override
 	public boolean existsById(String companyID) {
-		// TODO Auto-generated method stub
 		return companyRepository.existsById(companyID);
 	}
 
 	@Override
 	public Company getCompanyById(String companyID) {
-		// TODO Auto-generated method stub
 		Company result = companyRepository.findById(companyID).get();
 		return result;
 	}
 
 	@Override
 	public boolean addCompany(Company company) {
-		// TODO Auto-generated method stub
 		if (companyRepository.existsById(company.getidcompagnia())) {
 			return false;
 		} else {
@@ -49,13 +45,11 @@ public class CompanyService implements ICompanyService {
 
 	@Override
 	public void updateCompany(Company company) {
-		// TODO Auto-generated method stub
 		companyRepository.save(company);
 	}
 
 	@Override
 	public void deleteCompany(String companyID) {
-		// TODO Auto-generated method stub
 		companyRepository.delete(getCompanyById(companyID));
 	}
 

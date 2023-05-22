@@ -38,9 +38,23 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\aloie\Documents\GitHub\Accademy_ISCS\SP_FORMAZIONE\ws-javaSPRING\springBoot08_RestErrorHandlingNotFound"/>
 			<item value="C:\Users\aloie\Desktop\gestioneVoli"/>
 			<item value="C:\Users\aloie\Desktop\Java-Spring-main\Java-Spring-main\HelloSpring"/>
 			<item value="C:\Users\aloie\Desktop\springBoot02_RestCrudDataMySql"/>
+		</list>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\aloie\Documents\GitHub\Accademy_ISCS\SP_FORMAZIONE\ws-javaSPRING"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
 		</list>
 	</section>
 </section>
