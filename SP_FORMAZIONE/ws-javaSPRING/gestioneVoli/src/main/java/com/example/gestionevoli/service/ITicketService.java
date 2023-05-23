@@ -10,19 +10,21 @@ public interface ITicketService {
 	public List<Ticket> getAllTicket();
 	
 	//existById- boolean
-	public boolean existById(String ticketId);
+	boolean existById(String ticketId, String clientId);
 	
 	//getTicketById - Ticket
-	public Ticket getTicketById(String ticketId);
+	public Ticket getTicketById(String ticketId, String clientId);
 	
 	//addTicket - boolean
 	public boolean addTicket(Ticket tk);
 	
-	//updateTicket - void
-	public void updateTicket(Ticket tk);
+	//updateTicket - boolean
+	public boolean updateTicket(Ticket tk);
 	
-	//deleteTicket - void
-	public void deleteTicket(Ticket tk);
+	//deleteTicket - boolean
+	public boolean deleteTicket(String ticketId, String clienteId);
+
+
 	
 
 }

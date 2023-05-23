@@ -87,7 +87,7 @@ public class CompanyController {
 	public ResponseEntity<Void> deleteCompany(@PathVariable("id") String id, UriComponentsBuilder builder) {
 		if (!companyService.existsById(id)) {
 			HttpHeaders headers = new HttpHeaders();
-			headers.setLocation(builder.path("/Company/{id}").buildAndExpand(id).toUri());
+			headers.setLocation(builder.path("/compagnia/{id}").buildAndExpand(id).toUri());
 			return new ResponseEntity<Void>(headers, HttpStatus.NOT_FOUND);
 		}
 		companyService.deleteCompany(id);

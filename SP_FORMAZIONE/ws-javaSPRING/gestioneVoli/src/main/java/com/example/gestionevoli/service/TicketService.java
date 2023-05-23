@@ -2,10 +2,13 @@ package com.example.gestionevoli.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.gestionevoli.entity.Ticket;
+import com.example.gestionevoli.entity.TicketID;
+import com.example.gestionevoli.errors.EntityNotFoundException;
 import com.example.gestionevoli.repository.TicketRepository;
 
 public class TicketService implements ITicketService {
@@ -21,18 +24,22 @@ public class TicketService implements ITicketService {
 	}
 
 	@Override
-	public boolean existById(String ticketId) {
-		return repo.existsById(ticketId);
+	public boolean existById(String ticketId, String clientId) {
+		return repo.existsById(new TicketID(ticketId, clientId));
 	}
 
 	@Override
-	public Ticket getTicketById(String ticketId) {
-		return repo.findById(ticketId).get();
+	public Ticket getTicketById(String ticketId, String clienteId) {
+		Ticket tk =  repo
+		.findById(new TicketID(ticketId,clienteId))
+		.orElseThrow(()->new EntityNotFoundException("Ticket non trovato con id: " + ticketId + 
+				" e idCliente " + clienteId));
+		return tk;
 	}
 
 	@Override
 	public boolean addTicket(Ticket tk) {
-		if(existById(tk.getIdTicket())) {
+		if(repo.existsById(new TicketID(tk.getIdTicket(), tk.getIdCliente()))) {
 			return false;
 		}else {
 			repo.save(tk);
@@ -41,13 +48,25 @@ public class TicketService implements ITicketService {
 	}
 
 	@Override
-	public void updateTicket(Ticket tk) {
+	public boolean updateTicket(Ticket tk) {
+		boolean flag = repo.existsById(new TicketID(tk.getIdTicket(),
+				tk.getIdCliente()));
+		if(!flag) {
+			return false;
+		}
 		repo.save(tk);
+		return true;
 	}
 
 	@Override
-	public void deleteTicket(Ticket tk) {
-		repo.delete(tk);
+	public boolean deleteTicket(String ticketId, String clienteId) {
+		boolean flag = repo.existsById(new TicketID(ticketId, clienteId));
+		if(!flag) {
+			return false;
+		}
+		repo.deleteById(new TicketID(ticketId, clienteId));
+		return true;
 	}
+
 
 }
