@@ -30,7 +30,7 @@ Programmazione per contratto -> il programmatore che prevede di utilizzare un'in
 
 6- IN UNA CLASSE DERIVATA CHE OVERRIDA DEI METODI CON QUALE CRITERIO LA JVM ESEGUE IL METODO APPROPRIATO? 
 
-Grazie alla reflection, pratica eseguita a runtime
+Grazie alla reflection, pratica eseguita a runtime dalla JVM
 
 7- SPIEGARE L'UTILIZZO DEL MODIFICATORE FINAL NEI VARI LIVELLI DI UN PROGRAMMA
 
@@ -105,7 +105,8 @@ La clausola finally viene eseguita in qualunque caso, sia nel caso di successo d
 
 24- SI PUO' ISTANZIARE UN'INTERFACCIA?
 
-25- COME SI DEFINISCE UNA CLASSE ASTRATTA? Si dichiare la classe astratta e si DEVE dichiare almeno un metodo astratto. Si possono dichiare ed implementare anche metodi concretti. Le classi concrete che extends le classi astratte ereditano i metodi concreti e DEVONO implementare i metodi astratti
+25- COME SI DEFINISCE UNA CLASSE ASTRATTA? 
+Si dichiare la classe astratta e si DEVE dichiare almeno un metodo astratto. Si possono dichiare ed implementare anche metodi concretti. Le classi concrete che extends le classi astratte ereditano i metodi concreti e DEVONO implementare i metodi astratti
 
 26- COSA E' UN THREAD?
 
@@ -115,7 +116,8 @@ La clausola finally viene eseguita in qualunque caso, sia nel caso di successo d
 
 29- ELENCARE I PRINCIPALI METODI DI THREAD
 
-30- COME SI PUO' EFFETTUARE IL REVERSE DI UNA STRINGA? Attraverso un loop che parte dall'ultima occorenza si crea una nuova stringa con il carattere trovato in quell'occorenza fino allo scadere della stringa
+30- COME SI PUO' EFFETTUARE IL REVERSE DI UNA STRINGA? 
+Attraverso un loop che parte dall'ultima occorenza si crea una nuova stringa con il carattere trovato in quell'occorenza fino allo scadere della stringa
 
 31- A COSA SERVONO LE CLASSI STRINGBUILDER E STRINGBUFFER E LA LORO DIFFERENZA
 
