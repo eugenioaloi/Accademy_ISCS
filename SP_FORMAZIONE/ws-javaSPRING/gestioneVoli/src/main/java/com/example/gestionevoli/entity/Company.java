@@ -1,17 +1,13 @@
 package com.example.gestionevoli.entity;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "compagnia")
-public class Company implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+@Table(name="compagnia")
+public class Company {
 	
 	@Id
 	@Column(name = "idcompagnia")
@@ -57,9 +53,5 @@ public class Company implements Serializable {
 	public void setHub(String hub) {
 		this.hub = hub;
 	}
-	
-	
-	
-	
 
 }

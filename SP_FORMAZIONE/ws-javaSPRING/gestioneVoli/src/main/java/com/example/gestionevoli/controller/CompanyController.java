@@ -25,9 +25,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.example.gestionevoli.entity.Company;
 import com.example.gestionevoli.service.ICompanyService;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("gestioneCompagnia")
+@CrossOrigin
 public class CompanyController {
 	
 	@Autowired
