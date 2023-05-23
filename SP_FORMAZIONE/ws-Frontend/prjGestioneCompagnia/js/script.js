@@ -4,9 +4,15 @@ let btnCompagnie = document.querySelector('#btnCompagnia');
 //elenco div
 let listaCompagnie = document.querySelector("#compagnia");
 
+//elenco url
+const urlCompagnia = "http://localhost:8080/gestioneCompagnia/compagnia";
+
+function sezioneCompagnia(){
+    listaCompagnie.innerHTML += "pagina compagnia -idcompagnia -nome -nazione -hub"
+}
+
 //elenco funzioni
 function mostraCompagnie(){
-    const url = "http://localhost:8080/gestioneCompagnia/compagnia";
     
     fetch(url)
     .then(data => {return data.json()})
