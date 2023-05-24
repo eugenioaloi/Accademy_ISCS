@@ -15,7 +15,6 @@ public class Ticket {
 	@Column(name ="idticket")
 	private String idTicket;
 
-	@Id
 	@Column(name ="idcliente")
 	private String idCliente;
 	

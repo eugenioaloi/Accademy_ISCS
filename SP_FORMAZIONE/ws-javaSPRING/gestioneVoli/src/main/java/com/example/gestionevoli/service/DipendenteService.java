@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.gestionevoli.entity.Dipendente;
 import com.example.gestionevoli.repository.DipendenteRepository;
 
+@Service
 public class DipendenteService implements IDipendenteService {
 	
 	@Autowired

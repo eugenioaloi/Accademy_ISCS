@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.gestionevoli.entity.Aereoporto;
 import com.example.gestionevoli.repository.AereoportoRepository;
 
+@Service
 public class AereoportoService implements IAereoportoService{
 	
 	@Autowired
@@ -26,7 +28,7 @@ public class AereoportoService implements IAereoportoService{
 	}
 
 	@Override
-	public Aereoporto getById(String id) {
+	public Aereoporto getAereoportoById(String id) {
 		return repo.findById(id).get();
 	}
 
@@ -47,7 +49,7 @@ public class AereoportoService implements IAereoportoService{
 
 	@Override
 	public void deleteAereoporto(String id) {
-		repo.delete(getById(id));
+		repo.delete(getAereoportoById(id));
 	}
 
 }

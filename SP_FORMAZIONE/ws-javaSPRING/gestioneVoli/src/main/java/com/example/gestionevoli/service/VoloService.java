@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.gestionevoli.entity.Company;
 import com.example.gestionevoli.entity.Volo;
 import com.example.gestionevoli.repository.VoloRepository;
 
+@Service
 public class VoloService implements IVoloService{
 	
 	@Autowired
@@ -28,7 +30,6 @@ public class VoloService implements IVoloService{
 
 	@Override
 	public Volo getVoloById(String voloID) {
-		//Volo res = volorepository.findById(voloID).get();
 		return volorepository.findById(voloID).get();
 	}
 

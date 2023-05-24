@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.gestionevoli.entity.Ticket;
 import com.example.gestionevoli.entity.TicketID;
 import com.example.gestionevoli.errors.EntityNotFoundException;
 import com.example.gestionevoli.repository.TicketRepository;
 
+@Service
 public class TicketService implements ITicketService {
 	
 	@Autowired
@@ -24,22 +26,21 @@ public class TicketService implements ITicketService {
 	}
 
 	@Override
-	public boolean existById(String ticketId, String clientId) {
-		return repo.existsById(new TicketID(ticketId, clientId));
+	public boolean existById(String ticketId) {
+		return repo.existsById(ticketId);
 	}
 
 	@Override
-	public Ticket getTicketById(String ticketId, String clienteId) {
+	public Ticket getTicketById(String ticketId) {
 		Ticket tk =  repo
-		.findById(new TicketID(ticketId,clienteId))
-		.orElseThrow(()->new EntityNotFoundException("Ticket non trovato con id: " + ticketId + 
-				" e idCliente " + clienteId));
+		.findById(ticketId)
+		.orElseThrow(()->new EntityNotFoundException("Ticket non trovato con id: " + ticketId));
 		return tk;
 	}
 
 	@Override
 	public boolean addTicket(Ticket tk) {
-		if(repo.existsById(new TicketID(tk.getIdTicket(), tk.getIdCliente()))) {
+		if(repo.existsById(tk.getIdTicket())) {
 			return false;
 		}else {
 			repo.save(tk);
@@ -49,8 +50,7 @@ public class TicketService implements ITicketService {
 
 	@Override
 	public boolean updateTicket(Ticket tk) {
-		boolean flag = repo.existsById(new TicketID(tk.getIdTicket(),
-				tk.getIdCliente()));
+		boolean flag = repo.existsById(tk.getIdTicket());
 		if(!flag) {
 			return false;
 		}
@@ -59,12 +59,12 @@ public class TicketService implements ITicketService {
 	}
 
 	@Override
-	public boolean deleteTicket(String ticketId, String clienteId) {
-		boolean flag = repo.existsById(new TicketID(ticketId, clienteId));
+	public boolean deleteTicket(String ticketId) {
+		boolean flag = repo.existsById(ticketId);
 		if(!flag) {
 			return false;
 		}
-		repo.deleteById(new TicketID(ticketId, clienteId));
+		repo.deleteById(ticketId);
 		return true;
 	}
 

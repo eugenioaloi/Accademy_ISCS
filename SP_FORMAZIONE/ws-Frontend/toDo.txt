@@ -1,0 +1,2 @@
+- creare tutti i form che si gestiscono le richieste nascosti e ad ogni click sul pulsante si attivano i vari form specifici
+mettere tutto in un div

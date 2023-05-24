@@ -33,7 +33,7 @@ public class CompanyController {
 	@Autowired
 	private ICompanyService companyService;
 	
-	@GetMapping(value = "compagnia/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = "company/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CompanyInfo> getCompanyId(@PathVariable("id") String id) {
 		CompanyInfo ob = new CompanyInfo();
 		if(!companyService.existsById(id)) {
@@ -43,7 +43,7 @@ public class CompanyController {
 		return new ResponseEntity<CompanyInfo>(ob, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<CompanyInfo>> getAllCompanies() {
 		List<CompanyInfo> resCompanyInfo = new ArrayList<>();
 		List<Company> companyList = companyService.getAllComapanies();
@@ -56,7 +56,7 @@ public class CompanyController {
 		return new ResponseEntity<List<CompanyInfo>>(resCompanyInfo, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> addCompany(@RequestBody CompanyInfo companyInfo, UriComponentsBuilder builder) {
 		Company company = new Company();
 		BeanUtils.copyProperties(companyInfo, company);
@@ -69,7 +69,7 @@ public class CompanyController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "compagnia", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PutMapping(value = "company", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CompanyInfo> updateCompany(@RequestBody CompanyInfo companyInfo) {
 		Company company = new Company();
 		BeanUtils.copyProperties(companyInfo, company);
@@ -83,11 +83,11 @@ public class CompanyController {
 	}
 	
 	
-	@DeleteMapping(value= "compagnia/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
+	@DeleteMapping(value= "company/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> deleteCompany(@PathVariable("id") String id, UriComponentsBuilder builder) {
 		if (!companyService.existsById(id)) {
 			HttpHeaders headers = new HttpHeaders();
-			headers.setLocation(builder.path("/compagnia/{id}").buildAndExpand(id).toUri());
+			headers.setLocation(builder.path("company/{id}").buildAndExpand(id).toUri());
 			return new ResponseEntity<Void>(headers, HttpStatus.NOT_FOUND);
 		}
 		companyService.deleteCompany(id);

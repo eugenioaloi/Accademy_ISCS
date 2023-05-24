@@ -13,7 +13,7 @@ public interface IAereoportoService {
 	public boolean existById(String id);
 	
 	//getbyID <T>
-	public Aereoporto getById(String id);
+	public Aereoporto getAereoportoById(String id);
 	
 	//add boolean
 	public boolean addAereoporto (Aereoporto ap);

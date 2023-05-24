@@ -34,11 +34,11 @@ public class TicketController {
 	@Autowired
 	private ITicketService service;
 	
-	@GetMapping(value="ticket/{idTicket}/{idCliente}", produces= {MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(value="ticket/{idTicket}", produces= {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<TicketInfo> getTicketById(@PathVariable("idTicket") String idTicket,
 			@PathVariable("idCliente")String idCliente){
 		TicketInfo info = new TicketInfo();
-		BeanUtils.copyProperties(service.getTicketById(idTicket,idCliente), info);
+		BeanUtils.copyProperties(service.getTicketById(idTicket), info);
 		return new ResponseEntity<TicketInfo>(info,HttpStatus.OK);
 	}
 
@@ -65,6 +65,30 @@ public class TicketController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(builder.path("ticket/{id}").buildAndExpand(tk.getIdTicket()).toUri());
 		return new ResponseEntity<Void>(headers,HttpStatus.CREATED);
+	}
+	
+	
+	@PutMapping(value="ticket", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<TicketInfo> updateTicket(@RequestBody TicketInfo info){
+		Ticket tk = new Ticket();
+		BeanUtils.copyProperties(info, tk);
+		TicketInfo tkInfo = new TicketInfo();
+		BeanUtils.copyProperties(tk, tkInfo);
+		boolean flag = service.existById(tk.getIdTicket());
+		if(!flag) {
+			throw new EntityNotFoundException("Ticket con id " + tk.getIdTicket() + " non trovato");
+		}
+		service.updateTicket(tk);
+		return new ResponseEntity<TicketInfo>(tkInfo, HttpStatus.OK);
+	}
+	
+	public ResponseEntity<Void> deleteCompany(@PathVariable("id") String id, UriComponentsBuilder builder){
+		boolean flag= service.existById(id);
+		if(!flag) {
+			throw new EntityNotFoundException("Ticket con id " + id + " non trovato");
+		}
+		service.deleteTicket(id);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
 	

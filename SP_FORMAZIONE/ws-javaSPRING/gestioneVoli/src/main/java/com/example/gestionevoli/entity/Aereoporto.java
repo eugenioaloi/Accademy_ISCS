@@ -14,8 +14,8 @@ public class Aereoporto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "idAereoporto")
-	private String idAereoporto;
+	@Column(name = "idaereoporto")
+	private String idaereoporto;
 	
 	@Column(name = "nome")
 	private String nome;
@@ -24,11 +24,11 @@ public class Aereoporto implements Serializable {
 	private String citta;
 
 	public String getIdAereoporto() {
-		return idAereoporto;
+		return idaereoporto;
 	}
 
 	public void setIdAereoporto(String idAereoporto) {
-		this.idAereoporto = idAereoporto;
+		this.idaereoporto = idAereoporto;
 	}
 
 	public String getNome() {

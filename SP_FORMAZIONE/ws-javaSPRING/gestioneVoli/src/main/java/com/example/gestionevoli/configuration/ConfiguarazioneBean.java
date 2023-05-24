@@ -2,6 +2,7 @@ package com.example.gestionevoli.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.example.gestionevoli.service.AereoService;
 import com.example.gestionevoli.service.AereoportoService;
@@ -18,9 +19,10 @@ import com.example.gestionevoli.service.IVoloService;
 import com.example.gestionevoli.service.TicketService;
 import com.example.gestionevoli.service.VoloService;
 
-@Configuration
+//@Configuration
 public class ConfiguarazioneBean {
 
+	/*
 	public ICompanyService getCompagniaService() {
 		return new CompanyService();
 	}
@@ -53,5 +55,6 @@ public class ConfiguarazioneBean {
 	public ITicketService getTicketService() {
 		return new TicketService();
 	}
-
+	*/
+	
 }

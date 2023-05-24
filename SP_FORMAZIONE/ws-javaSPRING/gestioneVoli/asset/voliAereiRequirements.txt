@@ -1,0 +1,39 @@
+===============================
+VOLI AEREI - USER REQUIREMENTS
+===============================
+
+1) Si vogliono gestire le funzionalità di trasporto aereo di diverse 
+compagnie aeree, che hanno il loro hub in uno o più aereoporti.
+
+2) Le strutture dati implementate devono supportare le caratteristiche 
+specifiche di ogni aereo in servizio, in quale aereoporto sia abilitato 
+e tenere traccia dei voli effettuati, dei passeggeri e dell'equipaggio
+del volo.
+
+3) I clienti ottengono il loro biglietto (ticket) con tutte 
+le informazioni del volo e si tiene traccia di check-in, 
+prenotazione e annullamento.
+
+4) I voli effettuati dai singoli clienti (passeggeri) devono essere 
+disponibili per successive interrogazioni.
+
+5) I dati anagrafici dei dipendenti, siano piloti, hostess o altro,
+sono memorizzati in apposite strutture
+
+6) Sono previste tutte le funzionalità standard di inserimento/cancellazione/
+modifica/lista di clienti, dipendenti, voli dei clienti effettuati, 
+prenotati oltre che dei voli effettuati dagli aereomobili.
+
+7) Sono previste anche funzionalità da gestire quali emissione di ticket, 
+stampa, annullamento, check-in etc.
+
+8) Devono essere previste statistiche a livello di aereoporto, compagnia,
+cliente, su n. voli, scali, puntualità, manutenzioni effettuate/previste
+
+9) Si devono gestire inoltre i piloti abilitati a un dato aereo 
+in caso di sostituzioni e programmazione voli.
+
+---------------------
+
+entita: aereoporti, voli, passeggeri, equipaggio, imbarco?, 
+ 

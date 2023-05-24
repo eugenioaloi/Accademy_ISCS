@@ -44,7 +44,7 @@ public class AereoController {
 		return new ResponseEntity<AereoInfo>(info,HttpStatus.OK);
 	}
 
-	@GetMapping(value= "aereo", produces = {MediaType.APPLICATION_JSON_VALUE} )
+	@GetMapping(value= "aerei", produces = {MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<List<AereoInfo>> getAllAerei(){
 		List<AereoInfo> lstInfoAerei = new ArrayList<>();
 		List<Aereo> lstAerei = service.getAllAereo();
@@ -83,6 +83,7 @@ public class AereoController {
 		return new ResponseEntity<AereoInfo>(aeInfo,HttpStatus.OK);
 	}
 	
+	@DeleteMapping(value="aereo", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Void> deleteAereo(@PathVariable("id") String id, UriComponentsBuilder builder){
 		boolean flag = service.existById(id);
 		if(!flag) {
