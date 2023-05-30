@@ -10,7 +10,6 @@ public class BubbleSort {
 		for(int n:arr) {
 			System.out.print(n);
 		}
-		
 	}
 	
 	private static int [] sort(int[] arr) {

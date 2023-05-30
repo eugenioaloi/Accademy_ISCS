@@ -105,6 +105,4 @@ public class Connesione implements IConnessione{
 		return mappaVoli;
 	}
 	
-	
-
 }
