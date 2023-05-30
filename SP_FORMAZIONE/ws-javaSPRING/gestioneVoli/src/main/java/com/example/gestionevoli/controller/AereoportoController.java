@@ -81,6 +81,7 @@ public class AereoportoController {
 		return new ResponseEntity<AereoportoInfo>(aepinfo,HttpStatus.OK);
 	}
 	
+	/*
 	@DeleteMapping(value= "aereoporto/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> deleteAereoporto(@PathVariable("id") String id, UriComponentsBuilder builder) {
 		if (!service.existById(id)) {
@@ -89,6 +90,6 @@ public class AereoportoController {
 		service.deleteAereoporto(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}	
-	
+	*/
 	
 }
