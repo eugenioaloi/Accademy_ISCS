@@ -1769,3 +1769,13 @@
 2023-05-24 16:58:23,458 [Worker-9: Launching Executing clean in C__Users_aloie_Documents_GitHub_Accademy_ISCS_SP_FORMAZIONE_ws-javaSPRING_gestioneVoli] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -Ppom.xml -B -Dstyle.color=always clean
 2023-05-24 16:58:33,884 [Worker-2: Launching Executing install in C__Users_aloie_Documents_GitHub_Accademy_ISCS_SP_FORMAZIONE_ws-javaSPRING_gestioneVoli] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\aloie\Documents\GitHub\Accademy_ISCS\SP_FORMAZIONE\ws-javaSPRING\gestioneVoli":
 2023-05-24 16:58:33,886 [Worker-2: Launching Executing install in C__Users_aloie_Documents_GitHub_Accademy_ISCS_SP_FORMAZIONE_ws-javaSPRING_gestioneVoli] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -Ppom.xml -B -Dstyle.color=always install
+2023-05-31 10:30:54,816 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-31 14:30:06,626 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-31 15:17:41,169 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-31 19:02:39,344 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-31 19:02:57,658 [Worker-10: Launching gestioneVoli - GestioneVoliApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-31 19:02:57,679 [Worker-10: Launching gestioneVoli - GestioneVoliApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-31 19:02:57,679 [Worker-10: Launching gestioneVoli - GestioneVoliApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\aloie\Documents\GitHub\Accademy_ISCS\SP_FORMAZIONE\ws-javaSPRING\gestioneVoli\src\test\resources
+2023-05-31 19:03:47,520 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-31 19:03:47,527 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-31 19:03:47,531 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\aloie\Documents\GitHub\Accademy_ISCS\SP_FORMAZIONE\ws-javaSPRING\gestioneVoli\src\test\resources

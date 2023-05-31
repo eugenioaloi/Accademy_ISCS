@@ -28,7 +28,7 @@ import com.example.gestionevoli.service.IAereoportoService;
 @RequestMapping("gestioneCompagnia")
 @CrossOrigin
 public class AereoportoController {
-	
+	/*
 	@Autowired
 	private IAereoportoService service;
 	
@@ -81,7 +81,6 @@ public class AereoportoController {
 		return new ResponseEntity<AereoportoInfo>(aepinfo,HttpStatus.OK);
 	}
 	
-	/*
 	@DeleteMapping(value= "aereoporto/{id}", produces= { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> deleteAereoporto(@PathVariable("id") String id, UriComponentsBuilder builder) {
 		if (!service.existById(id)) {
