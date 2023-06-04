@@ -4,6 +4,13 @@ Perchè sono così importanti? conoscere profondamente come si struttura un algo
 
 Tutto viene semplificato grazie agli algortimi
 
+Algoritmi da interiorizzare:
+
+1- quicksort(pivot, partition, swap, quicksort ricorsivo)
+2- swap
+3- binary search
+4- buble sort
+
 ******************************
 
 Cose da sapere in informatica:

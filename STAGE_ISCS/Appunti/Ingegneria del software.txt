@@ -1,0 +1,51 @@
+Un ottimo codice deve essere:
+
+- COMPATTO (scritto sequenziale e senza spazi inutili)
+- MANTENIBILE 
+- FACILE DA UTILIZZARE
+
+LIFE CYCLE MANAGEMENT
+Ogni software che si rispetti ha un suo ciclo di vita. Questo ciclo deve essere rispettato per il raggiungimento del goal (creare un eccellente software)
+
+SECURE BY DESIGN
+Per suo design un software rispetta già in partenza le linee guida di sicurezza
+
+Il lifecycle management, in ordine di task, sono i seguenti:
+
+1- RACCOLTA DEI REQUISITI. Capire per filo e per segno cosa sta chiedendo esattamente il cliente (fare tutte le domande necessarie)
+
+2- STESURA ANALISI FUNZIONALE. Controllo e validazione con il cliente delle specifiche del software (Ho capito bene? Vuoi questo?)
+
+3- STESURA ANALISI TECNICA. Scrivere in informatichese tutto il processo da eseguire
+
+4- DIVISIONE IN MACROTASK E POI MICROTASK. Divide et impera. I task si dividono in blocchi sempre più piccoli fino a diventare insignificanti
+
+5- DISEGNO DELL'ARCHITETTURA. Scelta tecnica dei linguaggi di programmazione da utilizzare per sviluppare il software
+
+6- SVILUPPO DEI TASK. Atomicità dei task. Più sono piccoli e meglio è
+
+7- TESTING FUNZIONALE. Messa sotto stress del programma per valutare eventuali bug o errori
+
+8- REFACTORING
+
+9- TESTING FUNZIONALE. Seconda messa sotto stress del programma
+
+10- TEST DI CARICO. Quanto il software riesce a reggere
+
+11- SCRITTURA DELLA MANUALISTICA. Guida per l'utente
+
+12- TEST DI CERTIFICAZIONE CON IL CLIENTE. Approvazione finale del progetto a lavoro ultimato
+
+13- MESSA IN PRODUZIONE
+
+14- MANUTENZIONE ORDINARIA
+
+15- MANUTENZIONE EVOLUTIVA (Richieste ulteriori, aggiunte/modifiche etc, da parte del cliente)
+
+
+
+
+
+
+
+
