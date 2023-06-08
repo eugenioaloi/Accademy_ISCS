@@ -34,6 +34,26 @@ public class CarrelloService implements ICarrelloService{
 		lst= repo.findCarrelloByCodCliente(codCliente);
 		return lst;
 	}
+
+	@Override
+	public boolean addCarrello(Carrello cr) {
+		repo.save(cr);
+		
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateCarrello(Carrello cr) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getQtDisponibili(String cod_articolo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
