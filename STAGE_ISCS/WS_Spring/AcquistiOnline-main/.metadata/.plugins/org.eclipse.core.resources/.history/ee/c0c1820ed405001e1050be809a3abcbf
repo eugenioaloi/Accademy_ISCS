@@ -1,0 +1,10 @@
+package com.errors;
+
+public class ResourceNotFound {
+	
+	private static final long serialVersionUID=1L;
+	
+	public ResourceNotFound(String message) {
+		super();
+	}
+}

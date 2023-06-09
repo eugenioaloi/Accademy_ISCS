@@ -33,4 +33,9 @@ public class MagazzinoService implements IMagazzinoService {
 		return repo.existsByIdmagazzino(id_magazzino);
 	}
 
+	@Override
+	public Magazzino getMagazzinoByCodArticolo(String cod_articolo) {
+		return repo.findByCodarticolo(cod_articolo);
+	}
+
 }

@@ -26,7 +26,7 @@ public class Magazzino {
 	private int qt_disponibile;
 	
 	@Column(name="cod_articolo")
-	private String cod_articolo;
+	private String codarticolo;
 	
 	@Column(name="nome_articolo")
 	private String nome_articolo;
@@ -62,11 +62,11 @@ public class Magazzino {
 	}
 
 	public String getCod_articolo() {
-		return cod_articolo;
+		return codarticolo;
 	}
 
 	public void setCod_articolo(String cod_articolo) {
-		this.cod_articolo = cod_articolo;
+		this.codarticolo = cod_articolo;
 	}
 
 	public String getNome_articolo() {

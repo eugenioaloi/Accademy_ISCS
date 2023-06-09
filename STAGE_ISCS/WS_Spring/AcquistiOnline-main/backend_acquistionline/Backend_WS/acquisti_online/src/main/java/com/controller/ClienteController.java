@@ -1,0 +1,68 @@
+package com.controller;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import java.util.ArrayList;
+import com.model.Cliente;
+import com.service.IClienteService;
+
+import com.info.ClienteInfo;
+
+@RestController
+@RequestMapping(value="acquistionline")
+@CrossOrigin
+public class ClienteController {
+
+	@Autowired
+	private IClienteService clientservice;
+	
+	//Restituisce tutti i clienti registrati sul db
+	@GetMapping(value="clienti", produces= {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<ClienteInfo>> getAllClienti(){
+		List<Cliente> clienti = new ArrayList<>();
+		List<ClienteInfo> listInfo = new ArrayList<>();
+		clienti = clientservice.getAllClienti();
+		for(int i=0;i<clienti.size();i++) {
+			ClienteInfo clienteInfo = new ClienteInfo();
+			BeanUtils.copyProperties(clienti.get(i), clienteInfo);
+			listInfo.add(clienteInfo);
+		}
+		return new ResponseEntity<List<ClienteInfo>>(listInfo,HttpStatus.OK);
+	}
+	
+	//Restituisce il cliente con codCliente corrispondente
+	@GetMapping(value="clienti/{codCliente}", produces= {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<ClienteInfo> getClienteById(@PathVariable("codCliente") String codCliente){
+		Cliente cliente = new Cliente();
+		if(!clientservice.existsClienteByCodCliente(codCliente)) {
+			
+			
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		cliente = clientservice.getClienteByCodCliente(codCliente);
+		ClienteInfo cInfo = new ClienteInfo();
+		cInfo.setMessage("ok");
+		BeanUtils.copyProperties(cliente, cInfo);
+		
+		return new ResponseEntity<ClienteInfo>(cInfo, HttpStatus.OK);
+		
+	}
+	
+	//Restituisce l'esistenza o meno di un cliente tramite codCliente
+	@GetMapping(value="clienti/{codCliente}/exists", produces= {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Boolean> existsClienteByCodCliente(@PathVariable("codCliente") String codCliente){
+		boolean exists = clientservice.existsClienteByCodCliente(codCliente);
+		return new ResponseEntity<Boolean>(exists, HttpStatus.OK);
+	}
+	
+	
+}

@@ -14,5 +14,8 @@ public interface IMagazzinoService {
 	
 	//exist by ID
 	public boolean existByIdMagazzino(String id_magazzino);
+	
+	//getMagazzino by cod_articolo
+	public Magazzino getMagazzinoByCodArticolo(String cod_articolo);
 
 }

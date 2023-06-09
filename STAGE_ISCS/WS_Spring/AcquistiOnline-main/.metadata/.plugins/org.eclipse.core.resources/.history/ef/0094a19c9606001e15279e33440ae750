@@ -1,0 +1,27 @@
+package com.service;
+
+import java.util.List;
+
+import com.model.Carrello;
+import com.model.Magazzino;
+
+public interface IMagazzinoService {
+	
+	//get All
+	
+	public List<Magazzino> getAllMagazzini();
+	
+	//get by ID
+	
+	public Magazzino getMagazzinoById(int id);
+	
+	//exist by ID
+	
+	public boolean existByIdMagazzino(String id);
+	
+	//public Magazzini  getMagazziniByCodArticolo(String codArticolo);
+	
+    Carrello getAllCarrelliByCodCliente(String codCliente);
+    
+    Magazzino getMagazzinoByCodArticolo(String codArticolo);
+}

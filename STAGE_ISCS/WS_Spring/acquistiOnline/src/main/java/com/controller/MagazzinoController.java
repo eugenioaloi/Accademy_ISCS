@@ -24,7 +24,6 @@ import com.service.IMagazzinoService;
 @RestController
 @RequestMapping("acquistionline")
 @CrossOrigin
-
 public class MagazzinoController {
 	
 	@Autowired

@@ -1,4 +1,4 @@
-const btnElencoAcquisti = document.getElementById('btnAcquisti');
+const btnElecncoArt = document.getElementById('btnElecncoArt');
 
 function mostraTabellaAcquisti(){
 fetch('http://localhost:8080/acquistionline/magazzini')
@@ -31,7 +31,7 @@ fetch('http://localhost:8080/acquistionline/magazzini')
 })
 }
 
-btnElencoAcquisti.addEventListener('click',mostraTabellaAcquisti)
+btnElecncoArt.addEventListener('click',mostraTabellaAcquisti)
 
 
 const btnLogin = document.getElementById('btnLogin');
@@ -41,7 +41,7 @@ function checkCodCliente() {
     const cod_cliente = document.getElementById('inputUserCode').value;
     let msg = '';
     
-    fetch('http://localhost:8080/acquistionline/magazzini/' + cod_cliente)
+    fetch('http://localhost:8080/acquistionline/magazzino/' + cod_cliente)
     .then(response => response.json())
     .then(data => {
         msg += data.message;

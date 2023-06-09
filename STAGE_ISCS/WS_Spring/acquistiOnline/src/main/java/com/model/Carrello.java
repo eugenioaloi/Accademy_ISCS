@@ -28,7 +28,7 @@ public class Carrello {
 	private int qt_articoli;
 	
 	@Column(name="cod_articolo")
-	private String cod_articolo;
+	private String codarticolo;
 
 	public int getId() {
 		return id;
@@ -63,40 +63,11 @@ public class Carrello {
 	}
 
 	public String getCod_articolo() {
-		return cod_articolo;
+		return codarticolo;
 	}
 
 	public void setCod_articolo(String cod_articolo) {
-		this.cod_articolo = cod_articolo;
+		this.codarticolo = cod_articolo;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(cod_articolo, codCliente, id, qt_articoli, tipo_pagamento);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Carrello other = (Carrello) obj;
-		return Objects.equals(cod_articolo, other.cod_articolo) && Objects.equals(codCliente, other.codCliente)
-				&& id == other.id && qt_articoli == other.qt_articoli
-				&& Objects.equals(tipo_pagamento, other.tipo_pagamento);
-	}
-
-	@Override
-	public String toString() {
-		return "Carrello [id=" + id + ", cod_cliente=" + codCliente + ", tipo_pagamento=" + tipo_pagamento
-				+ ", qt_articoli=" + qt_articoli + ", cod_articolo=" + cod_articolo + "]";
-	}
-	
-
-	
-	
 
 }

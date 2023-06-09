@@ -1,0 +1,10 @@
+1686141209774	Delete element
+1686208982792	Rename package 'com.exception'
+1686253167385	Delete element
+1686253236546	Rename type 'CarrelliController'
+1686253518553	Rename type 'MagazziniController'
+1686253559889	Rename type 'MagazziniInfo'
+1686253582350	Rename type 'Magazzini'
+1686253598861	Rename type 'IMagazziniRepository'
+1686253625410	Rename type 'IMagazziniService'
+1686253637950	Rename type 'MagazziniService'

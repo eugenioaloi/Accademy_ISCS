@@ -1,0 +1,58 @@
+package com.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.info.MagazzinoInfo;
+import com.model.Magazzino;
+import com.service.IMagazziniService;
+
+@RestController
+@RequestMapping("acquistionline")
+@CrossOrigin
+
+public class MagazzinoController {
+	
+	@Autowired
+	private IMagazzinoService magazziniService;
+	
+	//Get All 
+	@GetMapping(value="magazzini", produces= {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<MagazzinoInfo>> getAllMagazzini(){
+		List<Magazzino> listMS=magazziniService.getAllMagazzini();
+		List<MagazzinoInfo> listMI= new ArrayList<MagazzinoInfo>();
+		for(int i=0; i<listMS.size();i++) {
+			MagazzinoInfo ob=new MagazzinoInfo();
+			BeanUtils.copyProperties(listMS.get(i), ob);
+			listMI.add(ob);
+		}
+		
+		return new ResponseEntity<List<MagazzinoInfo>>(listMI,HttpStatus.OK);
+	}
+	
+	//getMagazzino by cod_magazzino
+	@GetMapping(value="magazzino/{idmagazzino}", produces= {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<MagazzinoInfo> getClienteById(@PathVariable("idmagazzino") String idmagazzino){
+		Magazzino mg = new Magazzino();
+		boolean flag = magazziniService.existByIdMagazzino(idmagazzino);
+		if(!flag) {
+			throw new ResourceNotFound("Magazzino con cod :" + idmagazzino + " non disponibile");
+		}
+		mg = magazziniService.getMagazzinoById(idmagazzino);
+		MagazzinoInfo mgnfo = new MagazzinoInfo();
+		BeanUtils.copyProperties(mg, mgnfo);
+		return new ResponseEntity<MagazzinoInfo>(mgnfo, HttpStatus.OK);
+	}
+		
+
+}
