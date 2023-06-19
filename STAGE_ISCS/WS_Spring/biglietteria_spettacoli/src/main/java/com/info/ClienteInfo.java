@@ -4,28 +4,18 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class ClienteInfo {
-
-	@JsonInclude(Include.NON_NULL)
-	private int id;
 	
 	@JsonInclude(Include.NON_NULL)
-	private String codCliente;
+	private int id;
+
+	@JsonInclude(Include.NON_NULL)
+	private String codcliente;
 	
 	@JsonInclude(Include.NON_NULL)
 	private String nome;
 	
 	@JsonInclude(Include.NON_NULL)
 	private String cognome;
-	
-	private String message;
-	
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 
 	public int getId() {
 		return id;
@@ -35,12 +25,12 @@ public class ClienteInfo {
 		this.id = id;
 	}
 
-	public String getCodCliente() {
-		return codCliente;
+	public String getCodcliente() {
+		return codcliente;
 	}
 
-	public void setCodCliente(String codCliente) {
-		this.codCliente = codCliente;
+	public void setCodcliente(String codcliente) {
+		this.codcliente = codcliente;
 	}
 
 	public String getNome() {
@@ -58,7 +48,5 @@ public class ClienteInfo {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	
-	
 	
 }

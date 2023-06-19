@@ -105,7 +105,8 @@ public class CarrelloController {
 		}
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(builder.path("carrello/{codCliente}").buildAndExpand(cr.getCod_cliente()).toUri());
+		headers.setLocation(builder.path("carrello/{codCliente}")
+				.buildAndExpand(cr.getCod_cliente()).toUri());
 		return new ResponseEntity<>(headers,HttpStatus.CREATED);
 	}
 		
