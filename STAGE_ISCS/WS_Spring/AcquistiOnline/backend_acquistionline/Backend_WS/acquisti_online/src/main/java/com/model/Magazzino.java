@@ -21,7 +21,7 @@ public class Magazzino {
 	@Column(name="id_magazzino")
 	private String idMagazzino;
 	
-	@Column(name="qt_disponibile")
+	@Column(name="qt_disp")
 	private int qt_disponibile;
 	
 	@Column(name="cod_articolo")
