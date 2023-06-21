@@ -23,13 +23,13 @@ public class ClienteService implements IClienteService {
 	}
 
 	@Override
-	public Cliente getClienteBycodCliente(String cod_Cliente) {
-		return repo.findByCodcliente(cod_Cliente);
+	public Cliente getClienteById(int id) {
+		return repo.findById(id).get();
 	}
 
 	@Override
-	public boolean existsCliente(String cod_Cliente) {
-		return repo.existsByCodcliente(cod_Cliente);
+	public boolean existsClienteById(int id) {
+		return repo.existsById(id);
 	}
 
 }

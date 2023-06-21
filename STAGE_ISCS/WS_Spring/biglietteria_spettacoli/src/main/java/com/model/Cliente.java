@@ -8,21 +8,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="clienti")
+@Table (name="clienti")
 public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name="id")
 	private int id;
 	
-	@Column(name = "cod_cliente")
-	private String codcliente;
-	
-	@Column(name = "nome")
+	@Column(name="nome")
 	private String nome;
 	
-	@Column(name = "cognome")
+	@Column(name="cognome")
 	private String cognome;
 
 	public int getId() {
@@ -31,14 +28,6 @@ public class Cliente {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCodcliente() {
-		return codcliente;
-	}
-
-	public void setCodcliente(String codcliente) {
-		this.codcliente = codcliente;
 	}
 
 	public String getNome() {
@@ -56,5 +45,5 @@ public class Cliente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	
+
 }

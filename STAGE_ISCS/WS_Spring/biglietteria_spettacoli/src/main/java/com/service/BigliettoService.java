@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,25 +28,19 @@ public class BigliettoService implements IBigliettoService {
 	}
 
 	@Override
-	public Biglietto getBigliettoBycodBiglietto(String cod_Biglietto) {
-		return repo.findByCodbiglietto(cod_Biglietto);
+	public Biglietto getBigliettoBycodBiglietto(int id) {
+		return repo.findById(id).get();
 	}
 
 	@Override
-	public boolean existsBiglietto(String cod_Biglietto) {
-		return repo.existsByCodbiglietto(cod_Biglietto);
-	}
-
-	@Override
-	public boolean isPrenotabile(String cod_spettacolo, int quantita) {
-		int capienza = repoSp.findByCodspettacolo(cod_spettacolo).getCapienza();
-		return capienza>quantita;
+	public boolean existsBiglietto(int id) {
+		return repo.existsById(id);
 	}
 
 	@Override
 	public boolean addBiglietto(Biglietto bl) {
-		//il biglietto non deve già esistere
-		boolean flag = repo.existsByCodbiglietto(bl.getCodbiglietto());
+		//se esiste non si aggiunge
+		boolean flag = existsBiglietto(bl.getId());//true esiste
 		if(flag) {
 			return false;
 		}
@@ -55,20 +50,32 @@ public class BigliettoService implements IBigliettoService {
 
 	@Override
 	public boolean updateBiglietto(Biglietto bl) {
-		//il biglietto deve esistere
-		boolean exists = repo.existsByCodbiglietto(bl.getCodbiglietto());
-		if(!exists) {
-			return false;// il biglietto non esiste
+		//se non esiste non si può modificare
+		boolean flag = existsBiglietto(bl.getId());//true esiste
+		if(!flag) {
+			return false;
 		}
-		//si controlla se ci sono posti disponibili
-		boolean isPrenotabile = isPrenotabile(bl.getCodspettacolo(), bl.getQuantita());
-		if(!isPrenotabile) {
-			return false;// non è possibile aggiornare per mancanza di posti
-		}
-		//posso salvare il biglietto
 		repo.save(bl);
 		return true;
 	}
 
+	@Override
+	public boolean isPrenotabile(Biglietto bl, int quantita) {
+		int capienza = repoSp.findByBigliettoid(bl.getId()).getCapienza();
+		boolean prenotabile = capienza<quantita;//true non è prenotabile
+		return prenotabile? false:true;
+	}
+
+	@Override
+	public List<Biglietto> getAllBigliettiByIdCliente(int cliente_id) {
+		List<Biglietto> lstAllBiglietti = getAllBiglietti();
+		List<Biglietto> lst = new ArrayList<>();
+		for(Biglietto bl:lstAllBiglietti) {
+			if(bl.getClienteid() == cliente_id) {
+				lst.add(bl);
+			}
+		}
+		return lst;
+	}
 
 }

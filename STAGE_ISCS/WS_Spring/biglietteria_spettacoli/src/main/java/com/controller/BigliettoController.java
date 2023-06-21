@@ -49,15 +49,28 @@ public class BigliettoController {
 		return new ResponseEntity<List<BigliettoInfo>>(lstAllInfo,HttpStatus.OK);
 	}
 	
+	//get biglietti
+	@GetMapping(value="biglietti/{cliente_id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<BigliettoInfo>> getAllBigliettiByIdCliente(@PathVariable("cliente_id") int id){
+		List<Biglietto> lstBiglietto = service.getAllBigliettiByIdCliente(id);
+		List<BigliettoInfo> lstAllInfo = new ArrayList<>();
+		for (int i = 0; i < lstBiglietto.size(); i++) {
+			BigliettoInfo info = new BigliettoInfo();
+			BeanUtils.copyProperties(lstBiglietto.get(i), info);
+			lstAllInfo.add(info);
+		}
+		return new ResponseEntity<List<BigliettoInfo>>(lstAllInfo,HttpStatus.OK);
+	}
+	
 	//get Biglietto by ID
-	@GetMapping(value="biglietto/{cod_biglietto}", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<BigliettoInfo> getBigliettoByCodBiglietto(@PathVariable("cod_biglietto") String cod_biglietto){
-		boolean flag = service.existsBiglietto(cod_biglietto);
+	@GetMapping(value="biglietto/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<BigliettoInfo> getBigliettoByCodBiglietto(@PathVariable("id") int id){
+		boolean flag = service.existsBiglietto(id);
 		if(!flag) {
 			//implementare con l'errore custom id entità non esistente
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		Biglietto bl = service.getBigliettoBycodBiglietto(cod_biglietto);
+		Biglietto bl = service.getBigliettoBycodBiglietto(id);
 		BigliettoInfo info = new BigliettoInfo();
 		BeanUtils.copyProperties(bl, info);
 		return new ResponseEntity<BigliettoInfo>(info,HttpStatus.OK);
@@ -68,13 +81,11 @@ public class BigliettoController {
 	public ResponseEntity<Void> addBiglietto(@RequestBody BigliettoInfo info,UriComponentsBuilder builder ){
 		//controllo sulle quantita
 		if(info.getQuantita()<1) {
-			//implementare con exc custom qt inferiore a 1
-			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403
 		}
-		//esiste già
-		boolean flag = service.existsBiglietto(info.getCodbiglietto());
+		//controllo se esiste il biglietto, se esiste non posso aggiungerlo
+		boolean flag = service.existsBiglietto(info.getId());
 		if(flag) {
-			//implementare con exc custom entita già presente
 			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);// esiste e non posso aggiungerlo
 		}
 		Biglietto bl = new Biglietto();
@@ -82,50 +93,38 @@ public class BigliettoController {
 		//controllo l'effettivo inserimento
 		boolean addOK = service.addBiglietto(bl);
 		if(!addOK) {
-			//implementare con exc custom non è possibile aggiungere l'entità
 			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);// esiste e non posso aggiungerlo
 		}
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(builder.path("biglietto/{codBiglietto}")
-				.buildAndExpand(bl.getCodbiglietto()).toUri());
+		headers.setLocation(builder.path("biglietto/{id}")
+				.buildAndExpand(bl.getId()).toUri());
 		return new ResponseEntity<>(headers,HttpStatus.CREATED);
 	}
 	
-	//update - controllare il metodo 
 	@PutMapping(value="biglietto", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<BigliettoInfo> updateBiglietto(@RequestBody BigliettoInfo info,UriComponentsBuilder builder ){
 		//controllo sulle quantita
 		if(info.getQuantita()<1) {
-			//implementare con exc custom qt inferiore a 1
 			return new ResponseEntity<BigliettoInfo>(HttpStatus.FORBIDDEN);
 		}
 		//controllo sull'esistenza efettiva del biglietto
-		boolean flag = service.existsBiglietto(info.getCodbiglietto());
+		boolean flag = service.existsBiglietto(info.getId());
 		if(!flag) {
-			//implementare con exc custom entita non presente
-			return new ResponseEntity<BigliettoInfo>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<BigliettoInfo>(HttpStatus.NOT_FOUND);
 		}
 		//controllo se può essere prenotabile
-		try {
-			Spettacolo spCheck =  serviceSp.getSpettacoloBycodSpettacolo(info.getCodspettacolo());
-			boolean isPrenotabile = service.isPrenotabile(spCheck.getCodspettacolo(), info.getQuantita());
-			if(!isPrenotabile) {
-				//implementare con exc custom entita già presente
-				return new ResponseEntity<BigliettoInfo>(HttpStatus.FORBIDDEN);
-			}
-		} catch (Exception e) {
-			// implementare il catch - non esista uno spettacolo con il codice passato
+		Biglietto bl = service.getBigliettoBycodBiglietto(info.getId());
+		boolean isPrenotabile = service.isPrenotabile(bl, info.getQuantita());
+		if(!isPrenotabile) {
+			return new ResponseEntity<BigliettoInfo>(HttpStatus.FORBIDDEN);
 		}
-		// mi serve il supporto per aggiornate il biglietto, qt già inserite
-		int qtDB = service.getBigliettoBycodBiglietto(info.getCodbiglietto()).getQuantita();
-		int qtUpdate = qtDB+info.getQuantita();
-		Biglietto bl = new Biglietto();
-		//nuove quantita aggiornate
-		bl.setQuantita(qtUpdate);
-		BeanUtils.copyProperties(info, bl);
-		
+		//può essere aggiornato - mi faccio ritornare i dati
+		int qtDb = bl.getQuantita();
+		int qtUpdate = info.getQuantita();
+		//aggiorno il dato, tenendo conto già delle qt presenti
+		bl.setQuantita(qtDb+qtUpdate);
 		service.updateBiglietto(bl);
-		//copio l'entità 
+		//provvedo a passare l'entità con i suoi valori corrispondenti all'entità info
 		BigliettoInfo blInfo = new BigliettoInfo();
 		BeanUtils.copyProperties(bl, blInfo);
 		return new ResponseEntity<BigliettoInfo>(blInfo,HttpStatus.OK);

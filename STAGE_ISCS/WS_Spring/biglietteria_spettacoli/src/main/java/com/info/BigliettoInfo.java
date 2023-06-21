@@ -4,18 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class BigliettoInfo {
-	
+
 	@JsonInclude(Include.NON_NULL)
 	private int id;
 	
 	@JsonInclude(Include.NON_NULL)
 	private String orario;
-	
-	@JsonInclude(Include.NON_NULL)
-	private String codbiglietto;
-	
-	@JsonInclude(Include.NON_NULL)
-	private String codspettacolo;
 	
 	@JsonInclude(Include.NON_NULL)
 	private double prezzo;
@@ -27,7 +21,7 @@ public class BigliettoInfo {
 	private String tipopagamento;
 	
 	@JsonInclude(Include.NON_NULL)
-	private String codcliente;
+	private int clienteid;
 
 	public int getId() {
 		return id;
@@ -43,22 +37,6 @@ public class BigliettoInfo {
 
 	public void setOrario(String orario) {
 		this.orario = orario;
-	}
-
-	public String getCodspettacolo() {
-		return codspettacolo;
-	}
-
-	public void setCodspettacolo(String codspettacolo) {
-		this.codspettacolo = codspettacolo;
-	}
-
-	public String getCodbiglietto() {
-		return codbiglietto;
-	}
-
-	public void setCodbiglietto(String codbiglietto) {
-		this.codbiglietto = codbiglietto;
 	}
 
 	public double getPrezzo() {
@@ -85,12 +63,12 @@ public class BigliettoInfo {
 		this.tipopagamento = tipopagamento;
 	}
 
-	public String getCodcliente() {
-		return codcliente;
+	public int getClienteid() {
+		return clienteid;
 	}
 
-	public void setCodcliente(String codcliente) {
-		this.codcliente = codcliente;
+	public void setClienteid(int clienteid) {
+		this.clienteid = clienteid;
 	}
 	
 }

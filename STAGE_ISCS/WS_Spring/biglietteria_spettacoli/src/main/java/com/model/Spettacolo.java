@@ -1,6 +1,6 @@
 package com.model;
 
-import java.util.Date;
+import java.sql.*;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,26 +15,26 @@ public class Spettacolo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name="id")
 	private int id;
 	
-	@Column(name = "cod_spettacolo")
-	private String codspettacolo;
-	
-	@Column(name = "luogo")
+	@Column(name="luogo")
 	private String luogo;
 	
-	@Column(name = "gruppo")
+	@Column(name="gruppo")
 	private String gruppo;
+
+	@Column(name="data_concerto")
+	private Date dataconcerto;
 	
-	@Column(name = "data_concerto")
-	private Date data;
+	@Column(name="nome_concerto")
+	private String nomeconcerto;
 	
-	@Column(name = "nome_concerto")
-	private String nome;
-	
-	@Column(name = "capienza")
+	@Column(name="capienza")
 	private int capienza;
+	
+	@Column(name="biglietto_id")
+	private int bigliettoid;
 
 	public int getId() {
 		return id;
@@ -42,14 +42,6 @@ public class Spettacolo {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCodspettacolo() {
-		return codspettacolo;
-	}
-
-	public void setCodspettacolo(String codspettacolo) {
-		this.codspettacolo = codspettacolo;
 	}
 
 	public String getLuogo() {
@@ -68,20 +60,20 @@ public class Spettacolo {
 		this.gruppo = gruppo;
 	}
 
-	public Date getData() {
-		return data;
+	public Date getDataconcerto() {
+		return dataconcerto;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setDataconcerto(Date dataconcerto) {
+		this.dataconcerto = dataconcerto;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeconcerto() {
+		return nomeconcerto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeconcerto(String nomeconcerto) {
+		this.nomeconcerto = nomeconcerto;
 	}
 
 	public int getCapienza() {
@@ -90,6 +82,14 @@ public class Spettacolo {
 
 	public void setCapienza(int capienza) {
 		this.capienza = capienza;
+	}
+
+	public int getBiglietto_id() {
+		return bigliettoid;
+	}
+
+	public void setBiglietto_id(int bigliettoid) {
+		this.bigliettoid = bigliettoid;
 	}
 	
 }

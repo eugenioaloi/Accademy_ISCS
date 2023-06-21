@@ -9,11 +9,14 @@ public interface IBigliettoService {
 	//get all
 	List<Biglietto> getAllBiglietti();
 	
-	//get by cod Biglietto
-	Biglietto getBigliettoBycodBiglietto(String cod_Biglietto);
+	//get all list biglietti by id_cliente
+	List<Biglietto> getAllBigliettiByIdCliente(int cliente_id);
+	
+	//get by id
+	Biglietto getBigliettoBycodBiglietto(int id);
 	
 	//exists
-	boolean existsBiglietto(String cod_Biglietto);
+	boolean existsBiglietto(int id);
 	
 	//add Biglietto
 	boolean addBiglietto(Biglietto bl);
@@ -22,7 +25,7 @@ public interface IBigliettoService {
 	boolean updateBiglietto(Biglietto bl);
 	
 	//is prenotabile
-	boolean isPrenotabile(String cod_spettacolo,int quantita);
+	boolean isPrenotabile(Biglietto bl,int quantita);
 	
 
 }

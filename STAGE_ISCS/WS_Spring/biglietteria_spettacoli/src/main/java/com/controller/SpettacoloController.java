@@ -44,14 +44,14 @@ public class SpettacoloController {
 		return new ResponseEntity<List<SpettacoloInfo>>(lstAllInfo,HttpStatus.OK);
 	}
 	
-	@GetMapping(value="spettacolo/{cod_spettacolo}", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<SpettacoloInfo> getSpettacoloById(@PathVariable("cod_spettacolo") String cod_spettacolo){
-		//check dell'esistenza tramite cod_spettacolo
-		boolean flag = service.existsSpettacolo(cod_spettacolo);
+	@GetMapping(value="spettacolo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<SpettacoloInfo> getSpettacoloById(@PathVariable("id") int id){
+		//controllo l'esistenza dell'istanza Spettacolo per id
+		boolean flag = service.existsSpettacolo(id);
 		if(!flag) {
 			return new ResponseEntity<SpettacoloInfo>(HttpStatus.NOT_FOUND);//lo spettacolo non è stato trovato
 		}
-		Spettacolo sp = service.getSpettacoloBycodSpettacolo(cod_spettacolo);
+		Spettacolo sp = service.getSpettacoloById(id);
 		SpettacoloInfo info = new SpettacoloInfo();
 		BeanUtils.copyProperties(sp, info);
 		return new ResponseEntity<SpettacoloInfo>(info,HttpStatus.OK);

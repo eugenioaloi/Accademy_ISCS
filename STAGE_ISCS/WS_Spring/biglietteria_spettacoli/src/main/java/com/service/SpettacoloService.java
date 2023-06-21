@@ -23,13 +23,18 @@ public class SpettacoloService implements ISpettacoloService {
 	}
 
 	@Override
-	public Spettacolo getSpettacoloBycodSpettacolo(String cod_Spettacolo) {
-		return repo.findByCodspettacolo(cod_Spettacolo);
+	public Spettacolo getSpettacoloById(int id) {
+		return repo.findById(id).get();
 	}
 
 	@Override
-	public boolean existsSpettacolo(String cod_Spettacolo) {
-		return repo.existsByCodspettacolo(cod_Spettacolo);
+	public Spettacolo getSpettacoloByIdBiglietto(int id) {
+		return repo.findByBigliettoid(id);
 	}
 
+	@Override
+	public boolean existsSpettacolo(int id) {
+		return repo.existsById(id);
+	}
+	
 }

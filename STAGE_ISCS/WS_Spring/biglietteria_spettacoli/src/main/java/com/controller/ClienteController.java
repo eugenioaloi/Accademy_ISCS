@@ -40,16 +40,15 @@ public class ClienteController {
 	}
 	
 	//get Cliente by ID
-	@GetMapping(value="cliente/{cod_cliente}", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<ClienteInfo> getClienteById(@PathVariable("cod_cliente") String cod_cliente){
-		//controllo se il cod_cliente è previsto
-		boolean flag = service.existsCliente(cod_cliente);
+	@GetMapping(value="cliente/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<ClienteInfo> getClienteById(@PathVariable("id") int id){
+		//controllo se esiste un'enità cliente con l'id richiesto
+		boolean flag = service.existsClienteById(id);
 		if(!flag) {
-			//il cod cliente passato non esiste
+			return new ResponseEntity<ClienteInfo>(HttpStatus.NOT_FOUND);//cliente non trovato
 		}
-		Cliente cl = service.getClienteBycodCliente(cod_cliente);
+		Cliente cl = service.getClienteById(id);
 		ClienteInfo info = new ClienteInfo();
-		//supporto il frontend aggiungendo un messaggio
 		BeanUtils.copyProperties(cl, info);
 		return new ResponseEntity<ClienteInfo>(info,HttpStatus.OK);
 	}

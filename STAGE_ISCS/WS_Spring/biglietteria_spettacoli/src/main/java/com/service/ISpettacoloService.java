@@ -9,11 +9,14 @@ public interface ISpettacoloService {
 	//get all
 	List<Spettacolo> getAllSpettacoli();
 	
-	//get by cod Spettacolo
-	Spettacolo getSpettacoloBycodSpettacolo(String cod_spettacolo);
+	//get Spettacolo by id
+	Spettacolo getSpettacoloById(int id);
+	
+	//get Spettacolo by id_biglietto
+	Spettacolo getSpettacoloByIdBiglietto(int id);
 	
 	//exists
-	boolean existsSpettacolo(String cod_spettacolo);
+	boolean existsSpettacolo(int id);
 	
 
 }

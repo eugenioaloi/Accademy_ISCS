@@ -6,7 +6,6 @@ import com.model.Spettacolo;
 
 public interface SpettacoloRepository extends CrudRepository<Spettacolo, Integer> {
 	
-	Spettacolo findByCodspettacolo(String cod_spettacolo);
-	boolean existsByCodspettacolo (String cod_spettacolo);
+	Spettacolo findByBigliettoid(int biglietto_id);
 
 }

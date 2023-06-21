@@ -9,11 +9,11 @@ public interface IClienteService {
 	//get all
 	List<Cliente> getAllClienti();
 	
-	//get by cod Cliente
-	Cliente getClienteBycodCliente(String cod_Cliente);
+	//get by id
+	Cliente getClienteById(int id);
 	
-	//exists
-	boolean existsCliente(String cod_Cliente);
+	//exists by id
+	boolean existsClienteById(int id);
 	
 
 }

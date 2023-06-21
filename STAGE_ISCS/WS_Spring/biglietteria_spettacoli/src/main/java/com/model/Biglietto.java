@@ -10,32 +10,26 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="biglietti")
 public class Biglietto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name="id")
 	private int id;
 	
-	@Column(name = "orario")
+	@Column(name="orario")
 	private String orario;
 	
-	@Column(name = "cod_spettacolo")
-	private String codspettacolo;
-	
-	@Column(name = "cod_biglietto")
-	private String codbiglietto;
-	
-	@Column(name = "prezzo")
+	@Column(name="prezzo")
 	private double prezzo;
 	
-	@Column(name = "quantita")
+	@Column(name="quantita")
 	private int quantita;
 	
-	@Column(name = "tipo_pagamento")
+	@Column(name="tipo_pagamento")
 	private String tipopagamento;
 	
-	@Column(name = "cod_cliente")
-	private String codcliente;
+	@Column(name="cliente_id")
+	private int clienteid;
 
 	public int getId() {
 		return id;
@@ -51,22 +45,6 @@ public class Biglietto {
 
 	public void setOrario(String orario) {
 		this.orario = orario;
-	}
-
-	public String getCodspettacolo() {
-		return codspettacolo;
-	}
-
-	public void setCodspettacolo(String codspettacolo) {
-		this.codspettacolo = codspettacolo;
-	}
-
-	public String getCodbiglietto() {
-		return codbiglietto;
-	}
-
-	public void setCodbiglietto(String codbiglietto) {
-		this.codbiglietto = codbiglietto;
 	}
 
 	public double getPrezzo() {
@@ -93,12 +71,12 @@ public class Biglietto {
 		this.tipopagamento = tipopagamento;
 	}
 
-	public String getCodcliente() {
-		return codcliente;
+	public int getClienteid() {
+		return clienteid;
 	}
 
-	public void setCodcliente(String codcliente) {
-		this.codcliente = codcliente;
+	public void setClienteid(int clienteid) {
+		this.clienteid = clienteid;
 	}
 	
 }
