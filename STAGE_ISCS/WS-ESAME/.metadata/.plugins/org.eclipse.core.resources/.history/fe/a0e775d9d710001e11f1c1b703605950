@@ -1,0 +1,79 @@
+package com.info;
+
+import java.sql.Date;
+
+
+
+public class VoloInfo {
+	
+	private int id;
+	
+	private String nomevolo;
+	
+	private String partenza;
+	
+	private String destinazione;
+	
+	private Date datavolo;
+	
+	private String orapartenza;
+	
+	private int capienza;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNomevolo() {
+		return nomevolo;
+	}
+
+	public void setNomevolo(String nomevolo) {
+		this.nomevolo = nomevolo;
+	}
+
+	public String getPartenza() {
+		return partenza;
+	}
+
+	public void setPartenza(String partenza) {
+		this.partenza = partenza;
+	}
+
+	public String getDestinazione() {
+		return destinazione;
+	}
+
+	public void setDestinazione(String destinazione) {
+		this.destinazione = destinazione;
+	}
+
+	public Date getDatavolo() {
+		return datavolo;
+	}
+
+	public void setDatavolo(Date datavolo) {
+		this.datavolo = datavolo;
+	}
+
+	public String getOrapartenza() {
+		return orapartenza;
+	}
+
+	public void setOrapartenza(String orapartenza) {
+		this.orapartenza = orapartenza;
+	}
+
+	public int getCapienza() {
+		return capienza;
+	}
+
+	public void setCapienza(int capienza) {
+		this.capienza = capienza;
+	}
+	
+}

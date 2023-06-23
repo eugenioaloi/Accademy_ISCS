@@ -1,0 +1,16 @@
+package com.service;
+
+import java.util.List;
+
+public interface IClienteService {
+	
+	//get All
+	List<Cliente> getAllClienti();
+	
+	//Cliente bi ID
+	Cliente getClienteByID(int id);
+	
+	//exists by ID
+	boolean existsClienteByID(int id);
+
+}

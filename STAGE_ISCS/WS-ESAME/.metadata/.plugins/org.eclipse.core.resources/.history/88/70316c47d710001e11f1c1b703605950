@@ -1,0 +1,30 @@
+package com.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.model.Cliente;
+
+@Service
+public class ClienteService implements IClienteService{
+
+	@Override
+	public List<Cliente> getAllClienti() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Cliente getClienteByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existsClienteByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

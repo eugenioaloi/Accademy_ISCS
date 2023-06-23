@@ -1,0 +1,151 @@
+package com.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.info.BigliettoInfo;
+import com.model.Biglietto;
+import com.service.IBigliettoService;
+
+@RestController
+@RequestMapping(value = "gestionevoli")
+@CrossOrigin
+public class BigliettoController {
+	
+	@Autowired
+	private IBigliettoService service;
+	
+	//get all
+	@GetMapping(value="biglietti", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<BigliettoInfo>> getAllBiglietti(){
+		List<Biglietto> lstAll = service.getAllBiglietti();
+		List<BigliettoInfo> lstAllInfo = new ArrayList<>();
+		for(int i= 0;i<lstAll.size();i++) {
+			BigliettoInfo info = new BigliettoInfo();
+			BeanUtils.copyProperties(lstAll.get(i), info);
+			lstAllInfo.add(info);
+		}
+		return new ResponseEntity<List<BigliettoInfo>>(lstAllInfo,HttpStatus.OK);//200 tutto OK
+	}
+	
+	//get all by cliente id
+	@GetMapping(value="biglietti/{id_cliente}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<BigliettoInfo>> getAllBigliettiByIDCliente(@PathVariable("id_cliente") int id_cliente){
+		List<Biglietto> lstAllByIdCliente = service.getAllBigliettiByIdCliente(id_cliente);
+		List<BigliettoInfo> lstAllInfo = new ArrayList<>();
+		for(int i=0;i<lstAllByIdCliente.size();i++) {
+			BigliettoInfo info = new BigliettoInfo();
+			BeanUtils.copyProperties(lstAllByIdCliente.get(i), info);
+			lstAllInfo.add(info);
+		}
+		return new ResponseEntity<List<BigliettoInfo>>(lstAllInfo,HttpStatus.OK);//200 tutto OK
+	}
+	
+	//get by id
+	@GetMapping(value="biglietto/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<BigliettoInfo> getBigliettoByID(@PathVariable("id") int id){
+		//controllo se l'id è previsto
+		boolean flag = service.existBigliettoByID(id);//false non esiste
+		if(!flag) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);//404 non trovato
+		}
+		Biglietto biglietto = service.getBigliettoByID(id);
+		BigliettoInfo info = new BigliettoInfo();
+		BeanUtils.copyProperties(biglietto, info);
+		return new ResponseEntity<BigliettoInfo>(info,HttpStatus.OK);//200 tutto OK
+	}
+	
+	//add Biglietto
+	@PostMapping(value="biglietto", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> addBiglietto(@RequestBody BigliettoInfo info,UriComponentsBuilder builder){
+		//1 CHECK - le qt devono essere almeno 1
+		boolean flagQt = info.getQtrichiesta()>0;//true puoi procedere
+		if(!flagQt) {
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403 non è permesso procedere
+		}
+		//2 CHECK - controllo se il biglietto con l'id non esiste già
+		boolean flagExists = service.existBigliettoByID(info.getId());//false puoi procedere
+		if(flagExists) {
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403 non è permesso procedere
+		}
+		//mi creso il supporto biglietto
+		Biglietto bl = new Biglietto();
+		BeanUtils.copyProperties(info, bl);
+		//3 CHECK - controllo se è prenotabile
+		boolean flagIsPrenotabile = service.isPrenotabile(bl, bl.getQtrichiesta());//true puoi procedere
+		if(!flagIsPrenotabile) {
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403 non è permesso procedere
+		}
+		//Mi accerto dell'avvenuta registrazione
+		boolean flagAdd = service.addBiglietto(bl);//se false bad request
+		if(!flagAdd) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);//400 errore generico
+		}
+		//aggiorno la disponibilità
+		service.updateDisponibilita(bl);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(builder.path("biglietto/{id}")
+				.buildAndExpand(bl.getId()).toUri());
+		
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);//201 creata una nuova entità
+	}
+	
+	//update Biglietto
+	@PutMapping(value="biglietto", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> updateBiglietto(@RequestBody BigliettoInfo info,UriComponentsBuilder builder){
+		//1 CHECK - le qt devono essere almeno 1
+		boolean flagQt = info.getQtrichiesta()>0;//true puoi procedere
+		if(!flagQt) {
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403 non è permesso procedere
+		}
+		//2 CHECK - controllo se il biglietto esiste
+		boolean flagExists = service.existBigliettoByID(info.getId());//true puoi procedere
+		if(flagExists) {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);//404 biglietto non disponibile
+		}
+		//mi creso il supporto biglietto
+		Biglietto bl = new Biglietto();
+		BeanUtils.copyProperties(info, bl);
+		//3 CHECK - controllo se è prenotabile
+		boolean flagIsPrenotabile = service.isPrenotabile(bl, bl.getQtrichiesta());//true puoi procedere
+		if(!flagIsPrenotabile) {
+			return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);//403 non è permesso procedere
+		}
+		
+		// a questo punto posso settare i nuovi parametri rispetto al biglietto
+		
+		// 1) mi creo il supporto dal db e mi faccio ritornare le qt passate
+		int qtDB = service.getBigliettoByIDVolo(info.getVoloid()).getQtrichiesta();//qt inserite
+		int qtInfo = info.getQtrichiesta();
+		
+		// 2) setto i nuovi parametri
+		bl.setQtrichiesta(qtDB+qtInfo);
+		
+		// 3) aggiorno il db per il volo corrispondente e il biglietto corrispondente
+		service.updateDisponibilita(bl);
+		service.updateBiglietto(bl);
+		
+		//copio l'entità all'info e ritorno tutto all'http
+		BigliettoInfo blInfo = new BigliettoInfo();
+		BeanUtils.copyProperties(bl, blInfo);
+		return new ResponseEntity<Void>(HttpStatus.OK);//200 tutto OK
+	}
+	
+}

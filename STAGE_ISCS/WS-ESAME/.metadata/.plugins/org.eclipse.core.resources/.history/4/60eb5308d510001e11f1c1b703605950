@@ -1,0 +1,48 @@
+package com.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.model.Biglietto;
+
+@Service
+public class BigliettoService implements IBigliettoService{
+
+	@Override
+	public List<Biglietto> getAllBiglietti() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Biglietto> getAllBigliettiByIdCliente(int cliente_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Biglietto getBigliettoByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existBigliettoByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addBiglietto(Biglietto bl) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateBiglietto(Biglietto bl) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

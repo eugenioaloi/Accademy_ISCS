@@ -1,0 +1,86 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.model.Biglietto;
+import com.repository.BigliettoRepository;
+import com.repository.VoloRepository;
+
+@Service
+public class BigliettoService implements IBigliettoService{
+	
+	@Autowired
+	private BigliettoRepository repo;
+	
+	@Autowired
+	private VoloRepository repoVolo;
+
+	@Override
+	public List<Biglietto> getAllBiglietti() {
+		List<Biglietto> lst = new ArrayList<>();
+		repo.findAll().forEach(bl->lst.add(bl));
+		return lst;
+	}
+
+	@Override
+	public List<Biglietto> getAllBigliettiByIdCliente(int cliente_id) {
+		List<Biglietto> lstAll = getAllBiglietti();
+		List<Biglietto> lst = new ArrayList<>();
+		for(Biglietto bl:lstAll) {
+			if(bl.getClienteid()==cliente_id) {
+				lst.add(bl);
+			}
+		}
+		return lst;
+	}
+
+	@Override
+	public Biglietto getBigliettoByID(int id) {
+		return repo.findById(id).get();
+	}
+
+	@Override
+	public boolean existBigliettoByID(int id) {
+		return repo.existsById(id);
+	}
+
+	@Override
+	public boolean addBiglietto(Biglietto bl) {
+		//se il biglietto esiste già, non può essere aggiunto
+		boolean flag = existBigliettoByID(bl.getId());//true non può essere aggiunto
+		if(flag) {
+			return false;
+		}
+		repo.save(bl);
+		return true;
+	}
+
+	@Override
+	public boolean updateBiglietto(Biglietto bl) {
+		//se il biglietto non esiste , nulla può essere modificato
+		boolean flag = existBigliettoByID(bl.getId());//false nulla da modificare
+		if(!flag) {
+			return false;
+		}
+		repo.save(bl);
+		return true;
+	
+	}
+
+	@Override
+	public boolean isPrenotabile(Biglietto bl, int qtRichiesta) {
+		//controllo sulle qt- mi devo far ritornare la capienza in base al volo
+		int capienza = repoVolo.findById(bl.getVoloid()).get().getCapienza();
+		
+		//controllo se la capienza è maggiore della richiesta
+		boolean flag = capienza>qtRichiesta;
+		
+		//true ci sono posti, è prenotabile
+		return flag?true:false;
+	}
+
+}

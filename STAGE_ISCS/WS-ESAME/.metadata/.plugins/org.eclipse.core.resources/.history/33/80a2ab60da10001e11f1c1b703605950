@@ -1,0 +1,36 @@
+package com.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.info.BigliettoInfo;
+import com.info.VoloInfo;
+
+@RestController
+@RequestMapping(value = "gestionevoli")
+@CrossOrigin
+public class ClienteController {
+	
+	//get all
+	@GetMapping(value="voli", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<VoloInfo> getAllVoli(){
+		
+		return new ResponseEntity<VoloInfo>(HttpStatus.OK);//200 tutto OK
+	}
+	
+	//get by id
+	@GetMapping(value="volo/id", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<VoloInfo> getVoloByID(@PathVariable("id") int id){
+		
+		return new ResponseEntity<VoloInfo>(HttpStatus.OK);//200 tutto OK
+	}
+	
+
+}

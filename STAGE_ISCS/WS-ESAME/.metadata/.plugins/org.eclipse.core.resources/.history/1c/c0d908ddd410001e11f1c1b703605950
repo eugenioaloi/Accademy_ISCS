@@ -1,0 +1,27 @@
+package com.service;
+
+import java.util.List;
+
+import com.model.Volo;
+
+public class VoloService implements IVoloService {
+
+	@Override
+	public List<Volo> getAllClienti() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Volo getVoloByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existsVoloByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
