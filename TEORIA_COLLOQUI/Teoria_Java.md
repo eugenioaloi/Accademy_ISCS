@@ -73,24 +73,3 @@ Un metodo è composto da un nome + parametri in input (firma), un valore di rito
 
 STACK-> spazio di memoria allocato per le variabili
 HEAP -> spazio di memoria allocato per il parcheggio dei metodi in attesa di essere chiamati
-
-***********************************************************************
-
-TIPI DI DATO
-
-Le varibili possono contenere solo valori conformi al tipo dichiarato. Esistono i tipi semplici (primitivi) e composti (classi).
-
-I tipi primitivi sono 8:
-
-- short
-- byte
-- int
-- long
-- double
-- float
-- char
-- boolean
-
-I tipi primitivi non prevedono un riferimento diretto alla loro classe, le informazioni più semplici possono essere memorizzate direttamente nella variabile.
-
-()
