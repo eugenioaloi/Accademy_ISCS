@@ -113,7 +113,7 @@ public boolean puoVotare(int eta) {
     return true;
 }
 
-*************************** STRUTTURA DEL PROGRAMMA JAVA *************************** 
+*************************** STRUTTURA DEL PROGRAMMA JAVA E METODO MAIN *************************** 
 
 L'unità base di un programma Java è una classe, ovvero l'astrazione di un concetto della vita, con caratteristiche (attributi) e metodi (funzionalità). Una classe oltre a caratteristiche e metodi propri può avere al suo interno altre classi (inner class).
 Una classe per essere eseguita deve avere un metodo main, ovvero l'entry point di qualsiasi programma.
@@ -142,6 +142,10 @@ Il metodo main può essere anche scritto come segue:
 Si possono avere più main method nello stesso progetto, l'importante è dichiarare alla JVM quale metodo main è l'entry point dell'applicazione tramite il META-INF/MANIFEST.MF file. Si può indicare in questo modo:
 
 * Main-Class: mypackage.ClassWithMainMethod (dichiarazione entry point)
+
+*************************** PACKAGE *************************** 
+
+
 
 
 
